@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        cursor : 마우스 포인터 모양을 주는 속성
+     -->
+    <style>
+        button:hover{
+            cursor: pointer;
+        }
+        .box{
+            width: fit-content;
+            height: 24px;
+            padding: 0 7px;
+            border: 1px solid #777;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 24px;
+            text-align: center;
+            background: #efefef;
+            &:hover{
+                cursor: pointer;
+                background-color: #e1e1e1;
+            }
+            &:active{
+                background-color: #efefef;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button>button</button>
+    <div class="box">div button</div>
+</body>
+</html>

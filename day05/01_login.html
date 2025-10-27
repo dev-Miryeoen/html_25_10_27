@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: beige;
+        }
+        .container{
+            width: 500px;
+            margin: 300px auto 0;
+            form{
+                padding: 20px;
+                background-color: burlywood;
+                border-radius: 20px;
+            }
+        }
+        .inner-container{
+            width: 100%;
+            margin-bottom: 20px;
+            &:last-child{
+                margin-bottom: 0;
+            }
+            a{
+                text-align: center;
+                text-decoration: none;
+                color: white;
+                font-size: 14px;
+                display: block;
+                transition: 0.3s;
+                &:hover{
+                    color: blue;
+                }
+            }
+        }
+        .input{
+            width: 100%;
+            font-size: 16px;
+            height: 36px;
+            padding: 10px;
+            background-color: #fff;
+            border: 0;
+            border-radius: 5px;
+        }
+        .btn{
+            width: 100%;
+            font-size: 16px;
+            background-color: #fff;
+            border: 0;
+            border-radius: 5px;
+            height: 36px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-bottom: 40px;
+            &:hover{
+                background-color: #ddd;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="">
+            <div class="inner-container">
+                <input type="text" class="input" name="id" placeholder="아이디">
+            </div>
+            <div class="inner-container">
+                <input type="password" class="input" name="password" placeholder="비밀번호">
+            </div>
+            <div class="inner-container">
+                <button type="submit" class="btn">로그인</button>
+            </div>
+            <div class="inner-container">
+                <a href="#">비밀번호를 잊어버리셨나요?</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

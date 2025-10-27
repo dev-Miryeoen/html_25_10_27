@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 100%;
+            display: flex;
+            .leftSide{
+                width: 200px;
+                /* box-sizing: border-box; */
+                margin-right: 10px;
+                ul{
+                    margin: 0;
+                    padding: 0;
+                    li{
+                        width: 100%;
+                        height: 50px;
+                        display: block;
+                        border: 1px solid black;
+                        box-sizing: border-box;
+                        border-bottom: 0;
+                        line-height: 50px;
+                        text-align: center;
+                        &:hover{
+                            background-color: yellow;
+                            cursor: pointer;
+                        }
+                        &:last-child{
+                            border-bottom: 1px solid black;
+                        }
+                    }
+                }
+            }
+            .rightSide{
+                width: calc(100% - 210px);
+                height: 500px;
+                border: 1px solid black;
+                box-sizing: border-box;
+                background-image: url(../image/image2.jpg);
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="leftSide">
+            <ul>
+                <li class="box">menu1</li>
+                <li class="box">menu2</li>
+                <li class="box">menu3</li>
+                <li class="box">menu4</li>
+            </ul>
+        </div>
+        <div class="rightSide"></div>
+    </div>
+</body>
+</html>

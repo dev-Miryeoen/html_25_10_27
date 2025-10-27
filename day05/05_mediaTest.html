@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        div{
+            width: 100%;
+        }
+        .header{
+            background-color: #ccc;
+            font-weight: bold;
+            height: 50px;
+            line-height: 50px;
+            padding: 0 50px;
+        }
+        .main-img{
+            height: 300px;
+            background-image: url(../image/image1.jpg);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .discription{
+            height: 300px;
+            padding: 20px 30px;
+            p{
+                &:first-child{
+                    font-size: 14px;
+                    color: #aaa;
+                    margin-bottom: 30px;
+                }
+                &:nth-child(2){
+                    font-weight: bold;
+                    margin-bottom: 10px;
+                }
+                &:last-child{
+                    font-size: 14px;
+                }
+            }
+        }
+        .sub-img{
+            height: 300px;
+            background-image: url(../image/image2.jpg);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .sub-img2{
+            height: 300px;
+            position: relative;
+            background-image: url(../image/image3.jpg);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            a{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                border: 1px solid #fff;
+                padding: 10px 20px;
+                font-size: 20px;
+                font-weight: bold;
+                color: #fff;
+                text-decoration: none;
+            }
+        }
+        .sub-img3{
+            height: 300px;
+            background-image: url(../image/image1.jpg);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        @media screen and (min-width: 800px){
+            .sub-img{
+                width: 50%;
+                float: left;
+            }
+            .sub-img2{
+                width: 50%;
+                height: 150px;
+                float: left;
+            }
+            .sub-img3{
+                width: 50%;
+                height: 150px;
+                float: left;
+            }
+        }
+        @media screen and (min-width: 1200px){
+            .main-img{
+                width: 50%;
+                height: calc(100vh - 50px);
+                float: left;
+            }
+            .discription{
+                width: 50%;
+                height: calc((100vh - 50px) / 2);
+                float: left;
+            }
+            .sub-img{
+                width: 25%;
+                height: calc((100vh - 50px) / 2);
+                float: left;
+            }
+            .sub-img2{
+                width: 25%;
+                height: calc((100vh - 50px) / 4);
+                float: left;
+            }
+            .sub-img3{
+                width: 25%;
+                height: calc((100vh - 50px) / 4);
+                float: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        IN'O
+    </div>
+    <div class="main-img"></div>
+    <div class="discription">
+        <p>Portfolio</p>
+<p>Make Hardware Soft</p>
+<p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also</p>
+
+    </div>
+    <div class="sub-img"></div>
+    <div class="sub-img2">
+        <a href="">VIEW MORE</a>
+    </div>
+    <div class="sub-img3"></div>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            margin: 0 auto;
+            padding: 10px;
+            width: 320px;
+            border: 1px solid black;
+            box-sizing: border-box;
+            &>div{
+                border: 2px solid black;
+                text-align: center;
+                margin-bottom: 10px;
+                height: 50px;
+                box-sizing: border-box;
+                line-height: 45px;
+                &:last-child{
+                    margin-bottom: 0;
+                }
+                b{
+                    font-size: 20px;
+                    font-weight: 700;
+                }
+                &.mid{
+                    height: 300px;
+                    position: relative;
+                    .box{
+                        width: 100px;
+                        height: 100px;
+                        position: absolute;
+                        border: 2px solid #ccc;
+                        box-sizing: border-box;
+                        &:first-child{
+                            top: 40px;
+                            left: 40px;
+                            background-color: red;
+                            z-index: 3;
+                        }
+                        &:nth-child(2){
+                            top: 80px;
+                            left: 80px;
+                            background-color: green;
+                            z-index: 2;
+                        }
+                        &:last-child{
+                            top: 120px;
+                            left: 120px;
+                            background-color: blue;
+                            z-index: 1;
+                        }
+                    }
+                }
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top">
+            <b>텍스트</b>
+        </div>
+        <div class="mid">
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+        </div>
+        <div class="bottom">
+            <b>텍스트</b>
+        </div>
+    </div>
+</body>
+</html>

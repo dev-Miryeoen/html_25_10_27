@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        이름, 국어, 영어, 수학 점수를 입력받고 계산 버튼을 누르면
+        합계, 평균, 80점 이상이면 합격
+        국어, 영어, 수학의 값이 0~100 사이의 값이 아니라면 alert창의 띄워 안내 후 초기화
+     -->
+    <fieldset>
+        <legend>성적표</legend>
+        이름: <input type="text" id="name"> <br>
+        국어: <input type="text" id="kor"> <br>
+        영어: <input type="text" id="eng"> <br>
+        수학: <input type="text" id="math"> <br>
+        <button onclick="clickEvent()">성적계산</button>
+    </fieldset>
+    <ul id="ul"></ul>
+</body>
+<script>
+    const name = document.getElementById('name');
+    const kor = document.getElementById('kor');
+    const eng = document.getElementById('eng');
+    const math = document.getElementById('math');
+    const ul = document.getElementById('ul');
+
+    function clickEvent(){
+        function check(lec){
+            if(isNaN(Number(lec.value)) ||lec.value<0 || lec.value>100){
+                switch(lec.id){
+                    case 'kor' : alert("국어값이 잘못되었습니다."); break;
+                    case 'eng' : alert("영어값이 잘못되었습니다."); break;
+                    case 'math' : alert("수학값이 잘못되었습니다."); break;
+                    default : alert('error!');
+                }
+                lec.value = "";
+                return false;
+            }else{
+                return true;
+            }
+        }
+        if(!check(kor) || !check(eng) || !check(math)){
+            return false;
+        }
+        let sum = Number(kor.value) + Number(eng.value) + Number(math.value);
+        let avg = (sum / 3).toFixed(2);
+        ul.innerHTML = `
+        <li>이름: ${name.value}</li>
+        <li>국어: ${kor.value}</li>
+        <li>영어: ${eng.value}</li>
+        <li>수학: ${math.value}</li>
+        <li>합계: ${sum}</li>
+        <li>평균: ${avg}</li>
+        <li>통과여부: ${avg>=80?'합격':'불합격'}</li>
+        `
+    }
+</script>
+</html>

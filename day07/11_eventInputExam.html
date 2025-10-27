@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        이름, 국어, 영어, 수학 점수를 입력받고 계산 버튼을 누르면
+        ul>li 점수를 출력하고, 합계와, 평균도 같이 출력
+
+        Number() : string을 숫자로 변경될 수 있는 값 / 정수 + 실수
+        parseInt() : 정수만 변경가능.
+     -->
+    <fieldset>
+        <legend>input tag element</legend>
+        이름: <input type="text" id="name" placeholder="이름 입력..."><br>
+        국어: <input type="text" id="lang" placeholder="국어 점수 입력..."><br>
+        영어: <input type="text" id="eng" placeholder="영어 점수 입력..."><br>
+        수학: <input type="text" id="math" placeholder="수학 점수 입력..."><br>
+        <button onclick="calc()">계산</button>
+    </fieldset>
+    <ul id="printResult"></ul>
+</body>
+<script>
+    const name = document.getElementById('name');
+    const lang = document.getElementById('lang');
+    const eng = document.getElementById('eng');
+    const math = document.getElementById('math');
+    const printResult = document.getElementById('printResult');
+    function calc(){
+        let sum = Number(lang.value) + Number(eng.value) + Number(math.value);
+        let avg = (sum / 3).toFixed(2);
+        printResult.innerHTML = `
+        <li>이름: ${name.value}</li>
+        <li>국어: ${lang.value}</li>
+        <li>영어: ${eng.value}</li>
+        <li>수학: ${math.value}</li>
+        <li>합계: ${sum}</li>
+        <li>평균: ${avg}</li>`
+    }
+</script>
+</html>

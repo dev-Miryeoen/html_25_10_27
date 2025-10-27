@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            display: flex;
+            width: 100%;
+            .box{
+                width: 25%;
+                border: 1px solid black;
+                border-right: 0;
+                &:last-child{
+                    border-right: 1px solid black;
+                }
+                &:hover{
+                    background-color: yellow;
+                }
+                a{
+                    text-decoration: none;
+                    display: block;
+                    text-align: center;
+                    padding: 10px 0;
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box"><a href="">menu1</a></div>
+        <div class="box"><a href="">menu2</a></div>
+        <div class="box"><a href="">menu3</a></div>
+        <div class="box"><a href="">menu4</a></div>
+    </div>
+</body>
+</html>
