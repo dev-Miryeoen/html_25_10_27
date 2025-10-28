@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            width: 660px;
+            margin: 0 auto;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+        button{
+            border: 0;
+            background-color: transparent;
+            &:focus{
+                background-color: green;
+            }
+        }
+        img{
+            width: 200px;
+            height: 200px;
+        }
+        .top{
+            display: flex;
+            gap: 30px;
+            position: relative;
+            &::after{
+                content: 'player';
+                position: absolute;
+                bottom: -20px;
+                left: 50%;
+                transform: translateX(-50%);
+                color: #aaa;
+                font-size: 14px;
+            }
+        }
+        #result{
+            height: 200px;
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            p{
+                margin-bottom: 10px;
+                &:last-child{
+                    margin-bottom: 0;
+                }
+            }
+        }
+        .bottom{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            &::after{
+                content: 'com';
+                position: absolute;
+                top: -20px;
+                left: 50%;
+                transform: translateX(-50%);
+                color: #aaa;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        가위바위보 이미지를 버튼태스에 넣어 선택하여 가위밥위보의 승률 계산
+     -->
+    <div class="container">
+        <div class="top">
+            <button type="button" value="0"><img src="../image/rsp_image1.png" alt="가위"></button>
+            <button type="button" value="1"><img src="../image/rsp_image2.png" alt="바위"></button>
+            <button type="button" value="2"><img src="../image/rsp_image3.png" alt="보"></button>
+        </div>
+        <div id="result"></div>
+        <div class="bottom">
+            <img src="../image/rsp_image1.png" id="comImage" alt="">
+        </div>
+    </div>
+</body>
+<script>
+    const result = document.getElementById('result');
+    const comImg = document.getElementById('comImage');
+    let win = 0;
+    let draw = 0;
+    let lose = 0;
+    document.querySelectorAll('button').forEach((e)=>{
+        e.addEventListener('click',()=>{
+            let val = e.value;
+            let com = Math.floor(Math.random()*3);
+            let text = '';
+            if(val - com == 1 || val - com == -2){
+                text = 'player가 이겼습니다.'
+                win++;
+            }else if(com - val == 1 || com - val == -2){
+                text = 'player가 졌습니다.'
+                lose++;
+            }else{
+                text = '무승부입니다.'
+                draw++;
+            }
+            result.innerHTML = `
+            <p>player: ${val==0?'가위':val==1?'바위':'보'} / com: ${com==0?'가위':com==1?'바위':'보'} ${text}</p>
+            <p>현재 전적</p>
+            <p>승: ${win} / 무: ${draw} / 패: ${lose}</p>
+            <p>승률 : ${(win / (win+draw+lose) * 100).toFixed(2)}%</p>
+            `
+            comImg.src = `../image/rsp_image${com+1}.png`;
+        })
+    })
+</script>
+</html>
