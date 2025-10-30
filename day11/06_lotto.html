@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            margin: 0 auto;
+            padding-top: 100px;
+            width: 50%;
+            &>h1{
+                text-align: center;
+                margin-bottom: 40px;
+            }
+            .inner{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 20px;
+                h1{
+                    display: flex;
+                    flex-direction: row;
+                    span{
+                        width: 40px;
+                        height: 40px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        font-size: 16px;
+                        border-radius: 50%;
+                        color: white;
+                        margin-right: 20px;
+                        &.yellow{
+                            background-color: #f2b720;
+                        }
+                        &.blue{
+                            background-color: #4072ac;
+                        }
+                        &.red{
+                            background-color: #de4c0e;
+                        }
+                        &.gray{
+                            background-color: #9195a4;
+                        }
+                        &.green{
+                            background-color: #13be4b;
+                        }
+                    }
+                    &#printNum2{
+                        span:last-child{
+                            position: relative;
+                            margin-left: 20px;
+                            &::before{
+                                content: '+';
+                                position: absolute;
+                                top: 5px;
+                                left: -25px;
+                                font-size: 20px;
+                                color: #333;
+                            }
+                        }
+                    }
+                }
+                button{
+                    color: #fff;
+                    font-size: 14px;
+                    border: 0;
+                    background-color: #333;
+                    border-radius: 8px;
+                    padding: 0 10px;
+                    cursor: pointer;
+                    height: 40px;
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        1~45까지 랜덤수 6개 중복되지 않게 추출 => 출력
+        set 중복제거 후 => 배열
+     -->
+    <div class="container">
+        <h1>set을 이용한 로또 만들기</h1>
+        <div class="inner">
+            <h1 id="printNum">로또번호 출력</h1>
+            <button type="button" id="makeRandom">랜덤번호 6자리 생성(출력)</button>
+        </div>
+        <div class="inner">
+            <h1 id="printNum2">당첨번호 출력</h1>
+            <button type="button" id="makeRandom2">당첨번호 7자리 생성(출력)</button>
+        </div>
+        <div class="inner">
+            <h3 id="printResult">당첨여부 출력</h3>
+            <button type="button" id="ranking">당첨 확인</button>
+        </div>
+    </div>
+</body>
+<script>
+    const printNum = document.getElementById('printNum');
+    const printNum2 = document.getElementById('printNum2');
+    const printResult = document.getElementById('printResult');
+    const userSet = new Set();
+    const lottoSet = new Set();
+    document.addEventListener('click',e=>{
+        if(e.target.id == 'makeRandom'){
+            while(userSet.size<6){
+                userSet.add(Math.floor(Math.random()*45)+1);
+            }
+            let arr = [...userSet].sort((a,b)=>a-b);
+            let str = '';
+            for(let st of arr){
+                if(st <= 10){
+                    str += `<span class="yellow">${st}</span>`;
+                }else if(st <= 20){
+                    str += `<span class="blue">${st}</span>`;
+                }else if(st <= 30){
+                    str += `<span class="red">${st}</span>`;
+                }else if(st <= 40){
+                    str += `<span class="gray">${st}</span>`;
+                }else{
+                    str += `<span class="green">${st}</span>`;
+                }
+            }
+            printNum.innerHTML = str;
+        }
+        if(e.target.id == 'makeRandom2'){
+            while(lottoSet.size<7){
+                lottoSet.add(Math.floor(Math.random()*45)+1);
+            }
+            let arr = [...lottoSet];
+            let bonus = arr[arr.length-1];
+            let arr2 = [];
+            for(let i=0;i<6;i++){
+                arr2.push(arr[i]);
+            }
+            arr2.sort((a,b)=>a-b).push(bonus);
+            let str = '';
+            for(let st of arr2){
+                if(st <= 10){
+                    str += `<span class="yellow">${st}</span>`;
+                }else if(st <= 20){
+                    str += `<span class="blue">${st}</span>`;
+                }else if(st <= 30){
+                    str += `<span class="red">${st}</span>`;
+                }else if(st <= 40){
+                    str += `<span class="gray">${st}</span>`;
+                }else{
+                    str += `<span class="green">${st}</span>`;
+                }
+            }
+            printNum2.innerHTML = str;
+        }
+        if(e.target.id == 'ranking'){
+            let userArr = [...userSet];
+            let lottoArr = [...lottoSet];
+            let bonus = false;
+            let cnt = 0;
+            for(let i=0;i<7;i++){
+                for(let j=0;j<6;j++){
+                    if(i==6){
+                        if(userArr[j] == lottoArr[6]){
+                            bonus = true;
+                        }
+                    }else{
+                        if(userArr[j]==lottoArr[i]){
+                            cnt++;
+                            console.log(cnt);
+                        }
+                    }
+                }
+            };
+            let rank = 0;
+            if(cnt==6){
+                rank = 1;
+            }else if(cnt==5){
+                if(bonus){
+                    rank = 2;
+                }else{
+                    rank = 3;
+                }
+            }else if(cnt == 4){
+                rank = 4;
+            }else if(cnt == 3){
+                rank = 5;
+            };
+            printResult.innerText = rank != 0? `축하합니다! ${rank}등 입니다!`: "꽝입니다..";
+        }
+    })
+</script>
+</html>

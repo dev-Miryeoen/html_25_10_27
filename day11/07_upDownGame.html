@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            width: 500px;
+            margin: 0 auto;
+            padding-top: 100px;
+            .inner{
+                &>div{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    width: 250px;
+                }
+                &.inner-top{
+                    display: flex;
+                    margin-bottom: 20px;
+                    justify-content: space-between;
+                    align-items: center;
+                    h1{
+                        font-size: 20px;
+                    }
+                }
+                &.inner-bottom{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: flex-start;
+                    h1{
+                        p{
+                            font-size: 20px;
+                            margin-bottom: 16px;
+                            span{
+                                &.red{
+                                    color: red;
+                                }
+                                &.blue{
+                                    color: blue;
+                                }
+                                &.green{
+                                    color: green;
+                                }
+                            }
+                        }
+                    }
+                    input{
+                        min-width: calc(100% - 60px);
+                        border: 0;
+                        border-bottom: 1px solid #ccc;
+                        outline: none;
+                    }
+                    button{
+                        width: 60px;
+                    }
+                }
+                button{
+                    cursor: pointer;
+                    border: 0;
+                    color: #fff;
+                    background-color: #999;
+                    font-size: 16px;
+                    height: 40px;
+                    padding: 0 12px;
+                    font-weight: bold;
+                }
+                input{
+                    height: 40px;
+                    font-size: 16px;
+                    padding: 0 10px;
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        1~99까지의 숫자 중 하나를 랜덤으로 선택하여 해당 숫자를 맞추는 게임
+     -->
+    <div class="container">
+        <div class="inner inner-top">
+            <h1 id="printMsg"></h1>
+            <div>
+                <button id="random">랜덤 숫자 생성 버튼</button>
+                <button id="re">다시시도</button>
+            </div>
+        </div>
+        <div class="inner inner-bottom">
+            <h1 id="result"></h1>
+            <div>
+                <input type="text" id="myNum">
+                <button id="compareNum">제출</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    const printMsg = document.getElementById('printMsg');
+    const myNum = document.getElementById('myNum');
+    const result = document.getElementById('result');
+    let num = 0;
+    let cnt = 1;
+    const max = 6;
+    // 새로고침 (다시시도)
+    document.getElementById('re').addEventListener('click',()=>{
+        // window.location.reload();
+        location.reload(); // window는 생략가능
+    })
+    document.getElementById('random').addEventListener('click',()=>{
+        num = Math.floor(Math.random()*99)+1;
+        cnt = 0;
+        printMsg.innerText = '번호가 생성되었습니다.'
+        result.innerHTML = '';
+    })
+    document.getElementById('compareNum').addEventListener('click',()=>{
+        const inputNum = Number(myNum.value);
+        myNum.value = '';
+        myNum.focus();
+        if(cnt>=max+1){
+            return false;
+        }
+        if(inputNum == num){
+            result.innerHTML += `<p><span class="green">정답입니다!</span> [${inputNum}]</p>`
+        }else if(inputNum > num){
+            result.innerHTML += `<p>남은횟수: ${max-cnt}, <span class="red">DOWN!</span> [${inputNum}]</p>`
+        }else{
+            result.innerHTML += `<p>남은횟수: ${max-cnt}, <span class="blue">UP!</span> [${inputNum}]</p>`
+        }
+        cnt++;
+        if(cnt==max+1){
+            printMsg.innerText = `정답은 ${num} 입니다!`;
+        }
+    })
+</script>
+</html>

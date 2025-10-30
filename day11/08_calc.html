@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: rgb(220, 242, 255);
+        }
+        .container{
+            width: 500px;
+            margin: 0 auto;
+            padding-top: 50px;
+            h1{
+                width: 100%;
+                height: 100px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                margin-bottom: 20px;
+                box-shadow: 2px 2px 5px rgba(0,0,0,0.1) inset,
+                        -2px -2px 5px rgba(255,255,255,0.8) inset;
+                p{
+                    width: 100%;
+                    text-align: right;
+                    font-size: 24px;
+                    font-weight: 400;
+                    color: #777;
+                    margin-bottom: 10px;
+                    padding: 0 20px;
+                }
+                input{
+                    text-align: right;
+                    width: 100%;
+                    border: 0;
+                    outline: 0;
+                    padding: 0 20px;
+                    font-size: 30px;
+                    background-color: transparent;
+                    border: 0;
+                    outline: none;
+                }
+            }
+            .area{
+                display: grid;
+                gap: calc((100% - 400px) / 3);
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+                button{
+                    width: 100px;
+                    height: 100px;
+                    border: 0;
+                    border-radius: 10px;
+                    font-size: 24px;
+                    color: #999;
+                    transition: all 0.3s;
+                    font-weight: bold;
+                    background-color: rgb(220, 242, 255);
+                    box-shadow: 4px 4px 10px rgba(0,0,0,0.1),
+                        -4px -4px 10px rgba(255,255,255,0.8);
+                    &:last-child{
+                        width: 100%;
+                        grid-column: 1 / 5;
+                    }
+                    &:hover{
+                        color: #333;
+                    }
+                    &:active{
+                        box-shadow: 4px 4px 10px rgba(0,0,0,0.1) inset,
+                        -4px -4px 10px rgba(255,255,255,0.8) inset;
+                    }
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>
+            <p id="sub"></p>
+            <input type="text" id="result" placeholder="0" readonly>
+        </h1>
+        <div class="area">
+            <button type="button" value="7">7</button>
+            <button type="button" value="8">8</button>
+            <button type="button" value="9">9</button>
+            <button type="button" value="+">+</button>
+            <button type="button" value="4">4</button>
+            <button type="button" value="5">5</button>
+            <button type="button" value="6">6</button>
+            <button type="button" value="-">-</button>
+            <button type="button" value="1">1</button>
+            <button type="button" value="2">2</button>
+            <button type="button" value="3">3</button>
+            <button type="button" value="*">*</button>
+            <button type="button" value=".">.</button>
+            <button type="button" value="0">0</button>
+            <button type="button" value="=">=</button>
+            <button type="button" value="/">/</button>
+            <button type="button" value="c">c</button>
+        </div>
+    </div>
+</body>
+<script>
+    const sub = document.getElementById('sub');
+    const result = document.getElementById('result');
+    let current = '';
+    let calcArr = [];
+
+    document.addEventListener('click',e=>{
+        if(e.target.tagName !== 'BUTTON'){
+            return;
+        }
+        const val = e.target.value;
+
+        // 초기화
+        if(val == 'c'){
+            current = '';
+            calcArr = [];
+            result.value = '';
+            sub.textContent = '';
+            return;
+        }
+
+        // 숫자 입력
+        if(!isNaN(val) || val == '.'){
+            if(val == '.' && current.includes('.')){
+                return;
+            }
+            current += val;
+            result.value = current;
+            return;
+        }
+
+        // 연산자 입력
+        if(['+','-','*','/'].includes(val)){
+            if(current == '' && calcArr.length == 0){
+                return;
+            }
+            if(current != ''){
+                calcArr.push(parseFloat(current));
+                current = '';
+            }
+            // 마지막이 연산자라면 교체
+            if(isNaN(calcArr[calcArr.length - 1])){
+                calcArr[calcArr.length - 1] = val;
+            }else{
+                calcArr.push(val);
+            }
+            sub.textContent = calcArr.join(' ');
+            return;
+        }
+
+        // = 입력
+        if(val === '='){
+            if(current !== ''){
+                calcArr.push(parseFloat(current));
+            }
+            const resultVal = calculate(calcArr);
+            sub.textContent = calcArr.join(' ') + ' =';
+            result.value = resultVal;
+            calcArr = [resultVal];
+            current = '';
+        }
+    });
+
+    function calculate(tempArr){
+        if(tempArr.length == 0){
+            return 0;
+        }
+
+        // *,/ 먼저계산
+        let arr = [];
+        let i = 0;
+        while(i<tempArr.length){
+            if(tempArr[i] == '*'){
+                const prev = arr.pop();
+                const next = tempArr[i+1];
+                arr.push(prev*next);
+                i+=2;
+            }else if(tempArr[i] == '/'){
+                const prev = arr.pop();
+                const next = tempArr[i+1];
+                arr.push(prev/next);
+                i+=2;
+            }else{
+                arr.push(tempArr[i]);
+                i++;
+            }
+        }
+
+        // +,- 계산
+        let result = arr[0];
+        for(let j=1;j<arr.length;j+=2){
+            const op = arr[j];
+            const next = arr[j + 1];
+            if(op == '+'){
+                result+=next;
+            }else if(op == '-'){
+                result-=next;
+            }
+        }
+        return result;
+    }
+</script>
+</html>
