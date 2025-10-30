@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input{
+            position: relative;
+            &.correct{
+                background-color: rgb(19, 192, 56);
+                color: white;
+                &::after{
+                    content: '✅';
+                    position: absolute;
+                    top: 0;
+                    left: 50%;
+                }
+            }
+            &.incorrect{
+                background-color: rgb(219, 30, 30);
+                color: white;
+                &::after{
+                    content: '❌';
+                    position: absolute;
+                    top: 0;
+                    left: 50%;
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+    <button type="button" id="examStartBtn">문제출제</button>
+    <ol id="ol"></ol>
+    <button type="button" id="examEndBtn">정답확인</button>
+</body>
+<script>
+    const startBtn = document.getElementById('examStartBtn');
+    const endBtn = document.getElementById('examEndBtn');
+    const ol = document.getElementById('ol');
+    let checkArr = [];
+    startBtn.addEventListener('click',e=>{
+        let str = ''
+        for(let i=0;i<10;i++){
+            let r1 = Math.floor(Math.random()*8)+2;
+            let r2 = Math.floor(Math.random()*8)+2;
+            checkArr.push(r1*r2);
+            str += `<li>${r1} * ${r2} = <input type="text" class="examInput"></li>`;
+        }
+        ol.innerHTML = str;
+    })
+
+    endBtn.addEventListener('click',e=>{
+        let user = document.getElementsByClassName('examInput');
+        let userArr = [];
+        for(let i=0;i<user.length;i++){
+            userArr.push(user[i].value);
+        }
+        console.log(userArr);
+        for(let i=0;i<checkArr.length;i++){
+            if(checkArr[i]==userArr[i]){
+                // 정답
+                user[i].classList.add('correct');
+            }else{
+                // 오답
+                user[i].classList.add('incorrect');
+            }
+        }
+    })
+</script>
+</html>

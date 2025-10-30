@@ -1,0 +1,32 @@
+.container{
+    width: 300px;
+    margin: 50px auto;
+    .area{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        .c{
+            grid-column: span 4;
+            background-color: #f86b6b;
+        }
+        button{
+            padding: 20px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 15px;
+            background-color: #edb0b0;
+            box-shadow: 0px 4px 4px #f4e2e2;
+        }
+    }
+}
+#printResult{
+    text-align: right;
+    padding: 15px;
+    background-color: #f6dca8;
+    border: 1px solid rgb(203,155,72);
+    border-radius: 15px;
+    font-size: 25px;
+    height: 40px;
+    margin-bottom: 10px;
+}
