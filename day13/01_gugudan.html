@@ -5,48 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        .btnBox{
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        ol{
+            width: 300px;
+            margin: 0 auto;
+            li{
+                margin-bottom: 5px;
+                padding-left: 10px;
+            }
+        }
         input{
             position: relative;
+            &~span{
+                position: relative;
+                left: 10px;
+            }
             &.correct{
-                background-color: rgb(19, 192, 56);
-                color: white;
-                &::after{
+                &~span::after{
                     content: '✅';
-                    position: absolute;
-                    top: 0;
-                    left: 50%;
                 }
             }
             &.incorrect{
-                background-color: rgb(219, 30, 30);
-                color: white;
-                &::after{
+                &~span::after{
                     content: '❌';
-                    position: absolute;
-                    top: 0;
-                    left: 50%;
                 }
             }
+        }
+        h3{
+            text-align: center;
         }
     </style>
 </head>
 <body>
-    <button type="button" id="examStartBtn">문제출제</button>
+    <div class="btnBox">
+        <button type="button" id="examStartBtn">문제출제</button>
+        <button type="button" id="examEndBtn">정답확인</button>
+    </div>
     <ol id="ol"></ol>
-    <button type="button" id="examEndBtn">정답확인</button>
+    <h3 id="h3"></h3>
 </body>
 <script>
     const startBtn = document.getElementById('examStartBtn');
     const endBtn = document.getElementById('examEndBtn');
     const ol = document.getElementById('ol');
+    const h3 = document.getElementById('h3');
     let checkArr = [];
     startBtn.addEventListener('click',e=>{
         let str = ''
         for(let i=0;i<10;i++){
             let r1 = Math.floor(Math.random()*8)+2;
-            let r2 = Math.floor(Math.random()*8)+2;
+            let r2 = Math.floor(Math.random()*9)+1;
             checkArr.push(r1*r2);
-            str += `<li>${r1} * ${r2} = <input type="text" class="examInput"></li>`;
+            str += `<li>${r1} * ${r2} = <input type="text" name="input${i}" class="examInput"><span></span></li>`;
         }
         ol.innerHTML = str;
     })
@@ -54,6 +69,7 @@
     endBtn.addEventListener('click',e=>{
         let user = document.getElementsByClassName('examInput');
         let userArr = [];
+        let cnt = 0;
         for(let i=0;i<user.length;i++){
             userArr.push(user[i].value);
         }
@@ -62,11 +78,13 @@
             if(checkArr[i]==userArr[i]){
                 // 정답
                 user[i].classList.add('correct');
+                cnt++;
             }else{
                 // 오답
                 user[i].classList.add('incorrect');
             }
         }
+        h3.innerText = `정답갯수: ${cnt}개, 정답율: ${(cnt / user.length)*100}%`;
     })
 </script>
 </html>
