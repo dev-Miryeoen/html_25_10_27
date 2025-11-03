@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Young+Serif&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: rgb(239 239 239);
+        }
+        #header{
+            text-align: center;
+            margin: 100px auto 0;
+            padding: 30px 100px;
+            border-radius: 10px;
+            box-shadow: 3px 3px 5px rgba(0,0,0,0.2) inset,
+                        -3px -3px 5px rgba(255,255,255,1) inset;
+            width: calc(100% - 200px);
+            h1{
+                font-family: "Young Serif", serif;
+                margin-bottom: 20px;
+                font-size: 50px;
+                font-weight: 700;
+                color: #333;
+            }
+            p{
+                font-size: 20px;
+                font-weight: 600;
+                color: #555;
+            }
+        }
+        #section{
+            width: 100%;
+            padding: 100px;
+            display: flex;
+            gap: 100px;
+            justify-content: center;
+            &>div{
+                background-color: rgb(239 239 239);
+                box-shadow: 3px 3px 5px rgba(0,0,0,0.2) inset,
+                            -3px -3px 5px rgba(255,255,255,1) inset;
+                padding: 30px;
+                border-radius: 10px;
+                width: calc((100% - 200px)/3);
+            }
+            h3{
+                font-family: "Young Serif", serif;
+                font-weight: 700;
+                font-size: 24px;
+                color: #333;
+            }
+            p{
+                font-size: 18px;
+                font-weight: 400;
+                color: #555;
+            }
+            ul{
+                padding-left: 40px;
+                margin-top: 20px;
+                li{
+                    margin-bottom: 5px;
+                    color: #555;
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json
+     -->
+    <header id="header"></header>
+    <section id="section"></section>
+</body>
+<script>
+    const header = document.getElementById('header');
+    const section = document.getElementById('section');
+
+    // HTML 문서가 로딩되면 호출
+    // DOMContentLoaded
+    // HTML 문서가 완전히 로드되고 DOM 구조가 준비되었을 때 발생
+
+    document.addEventListener('DOMContentLoaded',()=>{
+        try {
+            fetch('https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json')
+            .then(res => res.json())
+            .then(data => setHTML(data));    
+        } catch (error) {
+            console.log(error);
+        }
+    })
+
+    function setHTML(data){
+        console.log(data);
+        header.innerHTML = `
+        <h1>${data.squadName}</h1>
+        <p>HomeTown : ${data.homeTown} // Formed : ${data.formed}</p>
+        `;
+        let str = '';
+        for(let member of data.members){
+            let powers = '';
+            for(let power of member.powers){
+                powers += `<li>${power}</li>`;
+            };
+            str += `
+            <div>
+                <h3>${member.name}</h3>
+                <p>SecretIdentity : ${member.secretIdentity}</p>
+                <p>Age : ${member.age}</p>
+                <p>SuperPowers :</p>
+                <ul>${powers}</ul>
+            </div>
+            `;
+        }
+        section.innerHTML = str;
+    }
+</script>
+</html>

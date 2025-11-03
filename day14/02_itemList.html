@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            font-family: "Nanum Pen Script", cursive;
+            font-size: 1.8rem;
+        }
+        h1{
+            text-align: center;
+            margin: 50px 0;
+            color: #333;
+            font-weight: 500;
+        }
+        form{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 500px;
+            margin: 0 auto;
+            input{
+                width: calc(100% - 150px);
+                height: 40px;
+                border: 0;
+                border-bottom: 1px solid #ddd;
+                outline: none;
+                color: #333;
+                font-size: 18px;
+                padding: 0 10px;
+                transition: 0.3s;
+                font-family: "Nanum Pen Script", cursive;
+                font-size: 20px;
+                &:focus{
+                    border-color: #777;
+                }
+            }
+            button{
+                width: 150px;
+                height: 40px;
+                border: 0;
+                cursor: pointer;
+                border: 1px solid #ddd;
+                background-color: transparent;
+                color: #777;
+                font-weight: 600;
+                transition: 0.3s;
+                font-family: "Nanum Pen Script", cursive;
+                font-size: 20px;
+                &:hover{
+                    font-size: 25px;
+                    color: #333;
+                    border-color: #777;
+                }
+            }
+        }
+        body>div{
+            padding-top: 30px;
+            width: 500px;
+            margin: 0 auto;
+            ul{
+                li{
+                    list-style: none;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 10px 20px 10px 50px;
+                    position: relative;
+                    margin-bottom: 1px;
+                    background-color: white;
+                    &::after{
+                        content: '';
+                        width: 0;
+                        z-index: -1;
+                        background-color: #999;
+                        height: 100%;
+                        position: absolute;
+                        top: 1px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        transition: 0.3s;
+                    }
+                    &:hover{
+                        &::after{
+                            width: 100%;
+                        }
+                    }
+                    &::before{
+                        content: '🔸';
+                        position: absolute;
+                        left: 0;
+                    }
+                    .delBtn{
+                        border: 0;
+                        background-color: transparent;
+                        height: 20px;
+                        cursor: pointer;
+                        width: 40px;
+                        height: 40px;
+                        transition: 0.3s;
+                        filter: grayscale(1);
+                        opacity: 0.5;
+                        &:hover{
+                            font-size: 15px;
+                            filter: grayscale(0);
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>여행 준비물 점검 목록</h1>
+    <form action="">
+        <input type="text" id="item">
+        <button type="button" id="btn">추가</button>
+    </form>
+    <div>
+        <ul id="itemList"></ul>
+    </div>
+</body>
+<script>
+    // todoList(CURD)
+    // C : create (생성) => item 생성 => 저장공간에 저장
+    // R : read (읽기) => item 배열을 읽어서 출력
+    // U : update (수정) => X
+    // D : delete(삭제) => item 배열에서 삭제
+
+    const input = document.getElementById('item');
+    const btn = document.getElementById('btn');
+    const ul = document.getElementById('itemList');
+
+    btn.addEventListener('click',()=>{
+        let item = input.value;
+        if(item){
+            ul.innerHTML += `
+            <li><span>${item}</span><button type="button" class="delBtn">❌</button></li>
+            `;
+            input.value = '';
+            input.focus();
+        }else{
+            alert('아이템값이 없습니다.')
+        }
+    })
+    
+    window.addEventListener('click',(e)=>{
+        if(e.target.classList.contains('delBtn')){
+            e.target.parentElement.remove();
+        }
+    })
+</script>
+</html>

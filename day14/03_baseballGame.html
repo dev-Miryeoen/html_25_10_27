@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body>div{
+            width: 500px;
+            margin: 20px auto;
+            &:first-child{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 20px;
+            }
+            &:nth-child(2){
+                font-size: 16px;
+                h1{
+                    text-align: center;
+                    margin-bottom: 10px;
+                }
+                &>div{
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 20px;
+                    input{
+                        width: calc(100% - 150px);
+                        height: 40px;
+                        font-size: 16px;
+                        padding: 0 10px;
+                        border: 0;
+                        border-bottom: 1px solid #ccc;
+                        outline: none;
+                        transition: 0.3s;
+                        &:focus{
+                            border-bottom-color: #333;
+                        }
+                    }
+                }
+                ol{
+                    padding-left: 30px;
+                    li{
+                        font-size: 20px;
+                        letter-spacing: 2px;
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+            button{
+                width: 150px;
+                height: 40px;
+                border: 0;
+                background-color: transparent;
+                font-size: 16px;
+                cursor: pointer;
+                border: 1px solid #ccc;
+                color: #999;
+                transition: 0.3s;
+                &:disabled{
+                    border-color: #eee;
+                    color: #aaa;
+                    cursor: not-allowed;
+                }
+                &:not(:disabled):hover{
+                    color: #333;
+                    border-color: #333;
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <button type="button" id="startBtn">게임시작</button>
+        <button type="button" id="resetBtn" disabled>다시시작</button>
+    </div>
+    <div>
+        <h1 id="comMsg"></h1>
+        <div>
+            <input type="text" id="myNum" placeholder="숫자입력">
+            <button id="tryBtn">게임확인</button>
+        </div>
+        <ol id="tries"></ol>
+    </div>
+</body>
+<script>
+    /*
+    1. 게임시작 전 입력 금지. -게임시작 버튼을 눌러주세요-
+    2. 중복 값 X -유효하지 않은 숫자입니다-
+    3. 반드시 3자리 -유효하지 않은 숫자입니다-
+    4. 문자x
+    */
+    // comNum 배열과, 사용자 value 값을 배열 비교
+    // 값 위치가 동일하면 strike, 값만 동일하면 ball
+    // 일치하는 값이 없다면 out
+    const startBtn = document.getElementById('startBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const comMsg = document.getElementById('comMsg');
+    const myNum = document.getElementById('myNum');
+    const checkBtn = document.getElementById('tryBtn');
+    const ol = document.getElementById('tries');
+    const comArr = new Set();
+    startBtn.addEventListener('click',()=>{
+        while(comArr.size<3){
+            comArr.add(Math.floor(Math.random()*10));
+        }
+        comMsg.innerText = "cpu값 설정 완료."
+        startBtn.disabled = true;
+        resetBtn.disabled = false;
+    })
+
+    resetBtn.addEventListener('click',()=>{
+        myNum.value = '';
+        ol.innerHTML = '';
+        comArr.clear();
+        comMsg.innerText = "리셋완료"
+        startBtn.disabled = false;
+        resetBtn.disabled = true;
+        checkBtn.disabled = false;
+    })
+    checkBtn.addEventListener('click',()=>{
+        let myval = myNum.value;
+        if(validateFunc(myval)){
+            checkAnswer(myval);
+        };
+    })
+
+    // 사용자값 검증 함수
+    function validateFunc(val){
+        console.log(val);
+        if(comArr.size==0){
+            // 게임시작 안눌렀을때
+            comMsg.innerText = "게임시작 버튼을 눌러주세요.";
+            return false;
+        }
+        if(val.length!=3){
+            // 3자리 입력이 아닐때
+            comMsg.innerText = "유효하지 않은 숫자입니다.";
+            return false;
+        }
+        let valArr = val.split('');
+        for(let i=0;i<valArr.length-1;i++){
+            for(let j=i+1;j<valArr.length;j++){
+                // 문자입력했을때
+                if(isNaN(valArr[i])||isNaN(valArr[j])){
+                    comMsg.innerText = "숫자만 입력 가능합니다.";
+                    return false;
+                }
+                // 중복값을 입력했을때
+                if(valArr[i]==valArr[j]){
+                    comMsg.innerText = "중복 입력은 불가합니다.";
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    function checkAnswer(val){
+        let comArr2 = [];
+        for(let num of comArr){
+            comArr2.push(num);
+        }
+        console.log(comArr2);
+        let valArr = val.split('');
+        let strike = 0;
+        let ball = 0;
+        for(let i=0;i<comArr2.length;i++){
+            for(let j=0;j<valArr.length;j++){
+                console.log(comArr2[i],valArr[j]);
+                if(comArr2[i]==valArr[j]){
+                    if(i==j){
+                        strike++;
+                    }else{
+                        ball++;
+                    }
+                }
+            }
+        }
+        if(strike==3){
+            checkBtn.disabled = true;
+            comMsg.innerText = "정답입니다!";
+        }
+        myNum.value = '';
+        myNum.focus();
+        ol.innerHTML += `
+        <li>${valArr} => ${strike==3?'success!!':strike==0&&ball==0?'out!':strike+'S, '+ball+'B'}</li>
+        `;
+    }
+</script>
+</html>
