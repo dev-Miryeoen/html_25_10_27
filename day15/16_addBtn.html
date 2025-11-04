@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="makeBtn">element Create</button>
+    <div id="zone"></div>
+</body>
+<script>
+    document.getElementById('makeBtn').addEventListener('click',()=>{
+        const newBtn = document.createElement('button');
+        newBtn.classList.add('newBtn');
+        newBtn.innerText= 'new Btn';
+        document.getElementById('zone').appendChild(newBtn);
+    })
+
+    // 동적으로 생성되는 버튼은 해당 function 밖에서는 인지가 안됨.
+
+    document.addEventListener('click',(e)=>{
+        if(e.target.classList.contains('newBtn')){
+            document.getElementById('zone').innerHTML += `<h1>newBtn이 클릭되었습니다.</h1>`;
+        }
+    })
+</script>
+</html>

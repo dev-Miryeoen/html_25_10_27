@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        element 생성방법
+    </h1>
+    <!-- 
+        '<li> 값 </li>' => innerHTML 로 추가
+
+        createElement : element 생성
+        appendChild : 대상 엘리먼트의 자식으로 추가
+     -->
+    <button id="btn1">li 한번에 추가</button>
+    <button id="btn2">li 한번에 하나씩 추가</button>
+
+    <button id="btn3">li 한번에 추가</button>
+    <button id="btn4">li 한번에 하나씩 추가</button>
+    <hr>
+    <ul id="ul"></ul>
+    <hr>
+    <ul id="ol"></ul>
+</body>
+<script>
+    const datas = ['HTML','CSS','Javascript','SQL','JAVA'];
+    const ul = document.getElementById('ul');
+    const ol = document.getElementById('ol');
+
+    // createElement => appendChild
+    document.getElementById('btn3').addEventListener('click',()=>{
+        ul.innerHTML = '';
+        datas.forEach(v=>{
+            let li = document.createElement('li'); // <li></li>
+            li.innerText = v; // textContent / innerText
+            ul.appendChild(li);
+        })
+    })
+    let count = 0
+    document.getElementById('btn4').addEventListener('click',()=>{
+        // let str = datas.shift();
+        if(count<5){
+            let li = document.createElement('li');
+            li.innerText = datas[count];
+            ol.appendChild(li);
+            count++;
+        }
+    })
+    
+    // btn1을 누르면 datas를 ul에 한번에 추가 => li를 생성해서 추가
+    document.getElementById('btn1').addEventListener('click',()=>{
+        let str = '';
+        for(let data of datas){
+            str += `<li>${data}</li>`;
+        }
+        ul.innerHTML = str;
+    })
+    // btn2를 누르면 datas를 ol에 하나씩 추가 => li를 생성해서 추가
+    let cnt = 0;
+    document.getElementById('btn2').addEventListener('click',()=>{
+        if(cnt<5){
+            ol.innerHTML += `<li>${datas[cnt]}</li>`;
+            cnt++;
+        }
+    })
+</script>
+</html>
