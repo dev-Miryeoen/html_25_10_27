@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lukia</title>
+    <link rel="icon" href="./favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/css-weekNew.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-left">
+                <div class="homeBox">
+                    <a href="./index.html">Lukia</a>
+                </div>
+                <div class="menuBox">
+                    <nav>
+                        <ul>
+                            <li><a href="./search.html">통합검색</a></li>
+                            <li><a href="./weekNew.html">요일별 신작</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="header-right">
+                <a href="" id="loginBtn">로그인 / 회원가입</a>
+                <a href="" id="likeBtn">보관함</a>
+            </div>
+        </header>
+        <section>
+            <h1>요일별 신작</h1>
+            <div class="section-container">
+                <ul class="week" id="mon">월요일</ul>
+                <ul class="week" id="tue">화요일</ul>
+                <ul class="week" id="wed">수요일</ul>
+                <ul class="week" id="thu">목요일</ul>
+                <ul class="week" id="fri">금요일</ul>
+                <ul class="week" id="sat">토요일</ul>
+                <ul class="week" id="sun">일요일</ul>
+            </div>
+        </section>
+        <footer>
+            <p>
+                <a href="./index.html">Lukia</a>
+            </p>
+            <p>
+                Allright reserved Lukia
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                        <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+                        <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334q.002-.211-.006-.422A6.7 6.7 0 0 0 16 3.542a6.7 6.7 0 0 1-1.889.518 3.3 3.3 0 0 0 1.447-1.817 6.5 6.5 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.32 9.32 0 0 1-6.767-3.429 3.29 3.29 0 0 0 1.018 4.382A3.3 3.3 0 0 1 .64 6.575v.045a3.29 3.29 0 0 0 2.632 3.218 3.2 3.2 0 0 1-.865.115 3 3 0 0 1-.614-.057 3.28 3.28 0 0 0 3.067 2.277A6.6 6.6 0 0 1 .78 13.58a6 6 0 0 1-.78-.045A9.34 9.34 0 0 0 5.026 15"/>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
+                        <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z"/>
+                    </svg>
+                </span>
+            </p>
+        </footer>
+    </div>
+    <div id="spinnerContainer" class="spinner-container">
+        <div class="spinner-border" role="status"></div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+
+    // 로그인
+    function setLogin(status){
+        const urlParams = new URLSearchParams(location.search);
+        console.log(checkId().liked);
+        let isin = checkId().liked == undefined? false: checkId().liked.find((el)=>el==urlParams.get('id'));
+        console.log(isin);
+        document.querySelector('.header-right').innerHTML = `
+        ${status? '<a href="./likedLIst.html" id="likeBtn">보관함</a><a href="./mypage.html" id="mypageBtn">마이페이지</a><a href="" id="logout">로그아웃</a>':'<a href="./login.html" id="loginBtn">로그인 / 회원가입</a>'}
+        `;
+    }
+
+    // 로그아웃
+    function logout(){
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+        users.forEach(user=>{
+            if(user.isLogin == true) {
+                user.isLogin = false; // ✅ 로그인 상태 갱신
+                localStorage.setItem('users', JSON.stringify(users));
+                alert("로그아웃되었습니다!");
+                window.location.reload();
+            }
+        })
+    }
+
+    window.addEventListener('click', (e)=>{
+        // 로그아웃버튼 클릭
+        if(e.target.id == 'logout'){
+            logout();
+        }
+        // 보관함담기 클릭
+        if(e.target.id == 'addBoxBtn'){
+            addLikeFunc();
+        }
+        // 보관함에서 제거 클릭
+        if(e.target.id == 'removeBoxBtn'){
+            removeLikeFunc();
+        }
+    })
+
+    // 스크롤시 헤더 변화
+    window.addEventListener('scroll',()=>{
+        window.scrollY != 0 ? document.querySelector('header').classList.add('active') : document.querySelector('header').classList.remove('active');
+    });
+
+    // spinner
+    function showSpinner(selector) {
+        const spinner = document.getElementById(selector);
+        if (!spinner) return;
+        spinner.classList.remove('fade-out');
+        spinner.style.display = 'flex';
+    }
+
+    // 스피너 숨김 + 페이드 아웃 함수
+    function hideSpinner(selector) {
+        const spinner = document.getElementById(selector);
+        if (!spinner) return;
+
+        // 페이드 아웃 클래스 추가
+        spinner.classList.add('fade-out');
+
+        // transition이 끝난 뒤 display:none 처리
+        spinner.addEventListener('transitionend', () => {
+            if (spinner.classList.contains('fade-out')) {
+            spinner.style.display = 'none';
+            }
+        }, { once: true });
+    }
+
+    const query = 
+    `query ($seasonYear: Int, $season: MediaSeason, $sort: [MediaSort], $isAdult: Boolean) {
+        Page(perPage: 50) {
+            media(seasonYear: $seasonYear, season: $season, sort: $sort, isAdult: $isAdult) {
+                id
+                title { romaji }
+                coverImage { large }
+                startDate { year month day }
+            }
+        }
+    }`;
+
+        const variables = {
+        seasonYear: new Date().getFullYear(),
+        season: getCurrentSeason(),
+        sort: ["POPULARITY_DESC"],
+        isAdult: false
+    };
+    
+
+    async function aniData_fetch() {
+    const url = 'https://graphql.anilist.co';
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+        },
+        body: JSON.stringify({ query, variables }),
+    };
+    try {
+        const response = await fetch(url, options);
+        const json = await response.json();
+        if (!response.ok) throw json;
+        return json;
+    } catch (error) {
+        console.error('API Error:', error);
+        throw error;
+    }
+}
+    async function dayfetch(selectedDay){
+        try { 
+            const data = await aniData_fetch();
+            console.log(data);
+            const media = data.data.Page.media;
+    
+            // 선택된 요일 필터링
+            const filtered = media.filter(anime => getKoreanDay(anime) === selectedDay);
+    
+            // 리스트 출력
+            const ul = document.getElementById(selectedDay);
+            if (filtered.length === 0) {
+
+                ul.innerHTML += `<li class="ani"><p>${selectedDay} 방영 애니가 없습니다.</p></li>`;
+            } else {
+                if(week[new Date().getDay()] == selectedDay){
+                    ul.style.color = '#8C3CF4 ';
+                    ul.style.backgroundColor = '#1D1D1D';
+                    ul.style.width = ''
+                }
+                ul.innerHTML += filtered.map(a => 
+                    `<li class="ani" data-aos="fade-up" data-aos-offset="80" data-aos-duration="1300">
+                        <a href="./detail.html?id=${a.id}">
+                            <img src="${a.coverImage.large}" alt="${a.title.romaji}">
+                            <p>${a.title.romaji}</p>
+                        </a>
+                        </li>`
+                    ).join('');
+                }
+
+        } catch (error) {
+            console.error('요일별 데이터 불러오기 실패:', error);
+        }
+    }
+    
+    const week = ['sun','mon','tue','wed','thu','fri','sat'];
+    
+    // 요일 계산 함수
+    function getKoreanDay(anime) {
+        if (!anime.startDate || !anime.startDate.year) return null;
+        const { year, month, day } = anime.startDate;
+        const date = new Date(year, month - 1, day);
+        return week[date.getDay()];
+    } 
+
+    // 현재 시즌 계산
+    function getCurrentSeason() {
+        const month = new Date().getMonth() + 1;
+        if (month >= 1 && month <= 3) return 'WINTER';
+        if (month >= 4 && month <= 6) return 'SPRING';
+        if (month >= 7 && month <= 9) return 'SUMMER';
+        return 'FALL';
+    }
+
+    function checkId() {
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+        let u = false;
+        users.forEach(user=>{
+            if(user.isLogin == true) {
+                u = user
+            }
+        })
+        return u;
+    }
+
+    // 첫 로드시 실행
+    document.addEventListener('DOMContentLoaded', async () => {
+        let loginUser = checkId();
+        loginUser?setLogin(loginUser.isLogin):setLogin(loginUser);
+        const urlParams = new URLSearchParams(location.search);
+        showSpinner('spinnerContainer');
+        try {
+            for (const v of week) {
+                await dayfetch(v);  // 각 요일 데이터를 순서대로 기다림
+            }
+        } catch (error) {
+            console.error('데이터 로드 오류:', error);
+        } finally {
+            hideSpinner('spinnerContainer');
+        }
+    });
+</script>
+</html>

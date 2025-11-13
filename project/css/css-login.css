@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Thin.woff2') format('woff2');
+    font-weight: 100;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraLight.woff2') format('woff2');
+    font-weight: 200;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraBold.woff2') format('woff2');
+    font-weight: 800;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Black.woff2') format('woff2');
+    font-weight: 900;
+    font-display: swap;
+}
+body{
+    height: 100vh;
+    background-color: #040404;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Roboto", 'Pretendard', sans-serif;
+}
+.round{
+    background: radial-gradient(ellipse at center, #3C008A 0%, #040404 50%);
+    width: 100vh;
+    height: 80vh;
+    z-index: -100;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.container{
+    width: 520px;
+    color: white;
+    background-color: #fff;
+    border-radius: 30px;
+    padding: 100px 70px;
+}
+a{
+    text-decoration: none;
+    color: rgb(134, 77, 237);
+    text-align: center;
+    display: block;
+    margin-bottom: 100px;
+}
+h1{
+    font-family: "Comfortaa", sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 80px;
+    margin: 0;
+}
+p{
+    font-size: 14px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    color: #f00;
+}
+input{
+    width: 100%;
+    height: 65px;
+    font-family: "Roboto", 'Pretendard', sans-serif;
+    font-size: 20px;
+    background-color: transparent;
+    border-radius: 10px;
+    border: 2px solid #e6e6e6;
+    margin-bottom: 10px;
+    padding: 22px;
+    color: rgb(134, 77, 237);
+    transition: 0.3s;
+    &::placeholder{
+        color: #b3b3b3;
+        font-size: 16px;
+    }
+    &:focus{
+        border-color: rgb(134, 77, 237);
+    }
+}
+button{
+    width: 100%;
+    color: white;
+    font-size: 16px;
+    background-color: #8C3CF4;
+    border: none;
+    border-radius: 10px;
+    height: 65px;
+    margin-top: 20px;
+    cursor: pointer;
+    font-family: "Roboto", 'Pretendard', sans-serif;
+    transition: 0.3s;
+    &:hover{
+        font-size: 17px;
+    }
+}
+.box{
+    text-align: center;
+    margin-top: 20px;
+    a{
+        font-family: "Roboto", 'Pretendard', sans-serif;
+    }
+}
+.signup{
+    text-decoration: none;
+    color: #a1a1a1;
+    font-size: 16px;
+    font-weight: 300;
+    transition: 0.3s;
+    margin-bottom: 0;
+}
+.signup:hover{
+    color: rgb(134, 77, 237);
+}
+
+.input-group {
+    position: relative; 
+    width: 100%;
+    input{
+        margin-bottom: 0;
+    }
+}
+.pw_show_hi{
+    position: absolute;
+    right: 15px;
+    top: 0px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    z-index: 5;
+}
+.pw-toggle{
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 18px; 
+    height: 18px;
+    padding-bottom: 40px;
+}
+.pw-toggle svg{
+    width: 18px;
+    height: 18px;
+    display: block;
+    color: rgb(134, 77, 237);
+}
+#eyeOpen{
+    display: none;
+}

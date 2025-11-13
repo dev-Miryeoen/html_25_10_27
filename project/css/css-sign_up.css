@@ -1,0 +1,353 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Thin.woff2') format('woff2');
+    font-weight: 100;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraLight.woff2') format('woff2');
+    font-weight: 200;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraBold.woff2') format('woff2');
+    font-weight: 800;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Black.woff2') format('woff2');
+    font-weight: 900;
+    font-display: swap;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #040404;
+    color: white;
+    font-family: "Roboto", 'Pretendard', sans-serif;
+    /* background: linear-gradient(to right, #3C008A 0%, #040404 50%); */
+}
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.inner{
+    width: 520px;
+    padding: 100px 60px;
+    background-color: #fff;
+    border-radius: 30px;
+    transition: 1s;
+    &.active{
+        width: calc(100vw - 80px);
+        padding: 40px;
+        background-color: rgba(0,0,0,0.7);
+        max-height: calc(100vh - 80px);
+        position: relative;
+        box-shadow: 0 0 5px rgba(255,255,255,0.3);
+        overflow: hidden;
+        .backimg{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            left: 0;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            &::before{
+                content: '';
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(0deg, black 10%, rgba(0,0,0,0.8) 50%, black 90%);
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 0;
+            }
+        }
+    }
+    h1{
+        font-weight: 400;
+        font-size: 55px;
+        color: #040404;
+        margin: 0;
+        margin-bottom: 70px;
+    }
+    form{
+        padding: 0 10px;
+        p{
+            font-weight: 400;
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #040404;
+        }
+        &>div{
+            position: relative;
+        }
+        .pw_show_hi{
+            position: relative;
+        }
+        .pw-toggle{
+            position: absolute;
+            right: 20px;
+            top: calc(50% - 8px);
+            transform: translateY(-50%);
+            cursor: pointer;
+            display: none;
+            height: 22px;
+            width: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .pw-toggle svg{
+            width: 18px;
+            height: 18px;
+            display: block;
+        }
+        #eyeOpen{
+            display: none;
+        }
+        input{
+            width: 100%;
+            border: 2px solid #e6e6e6;
+            border-radius: 10px;
+            background-color: transparent;
+            padding: 20px;
+            font-size: 16px;
+            margin-top: 0;
+            height: 65px;
+            color: rgb(134, 77, 237);
+            outline: none;
+            transition: 0.3s;
+            &::placeholder{
+                color: #b3b3b3;
+                font-size: 16px;
+            }
+            &:focus{
+                border-color: rgb(134, 77, 237);
+            }
+        }
+        span{
+            display: block;
+            margin-top: 10px;
+            font-size: 13px;
+            margin-left: 5px;
+            margin-bottom: 10px;
+            color: rgb(134, 77, 237);
+        }
+        button{
+            background-color: rgb(134, 77, 237);
+            color: #fff;
+            cursor: pointer;
+            transition: 0.3s;
+            border: 0;
+            border-radius: 10px;
+            &:disabled{
+                background-color: rgb(149 149 149);
+                color: rgb(201 201 201);
+                border: 0;
+            }
+            &:not(&:disabled):hover{
+                font-size: 15px;
+            }
+            &.dup{
+                height: 35px;
+                width: 85px;
+                font-size: 14px;
+                position: absolute;
+                right: 14px;
+                top: 14px;
+            }
+            &#signup{
+                height: 65px;
+                width: 100%;
+                font-size: 16px;
+            }
+        }
+        
+    }
+    .swiper-slide{
+        position: relative;
+        h3{
+            margin: 0 0 30px;
+            font-size: 40px;
+            a{
+                margin-left: 40px;
+                text-decoration: none;
+                font-size: 20px;
+                color: #fff;
+            }
+        }
+        .favorBox{
+            height: calc(100vh - 300px);
+            overflow-y: auto;
+            position: relative;
+            &::-webkit-scrollbar {
+                width: 8px;
+                background-color: transparent;
+                border: 1px solid rgb(134, 77, 237);
+                border-radius: 5px;
+            }
+            &::-webkit-scrollbar-thumb {
+                border: 4px;
+                background-color: rgb(134, 77, 237);
+                border-radius: 5px;
+            }
+            &::-webkit-scrollbar-track {
+                background-color: transparent;
+            }
+            .favor-innerBox{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                gap: 20px calc(20% - 200px);
+            }
+            p{
+                font-size: 16px;
+                font-weight: 600;
+                padding-top: 20px;
+            }
+            .check_label {
+                padding: 5px 10px 5px 0; 
+                transition: color 0.2s;
+                display: inline-block;
+            }
+            .check_label input[type="checkbox"] {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                padding: 0;
+                margin: -1px;
+                overflow: hidden;
+                clip: rect(0, 0, 0, 0);
+                clip-path: inset(50%);
+                border: 0;
+            }
+            .check_label label {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                cursor: pointer;
+                font-size: 14px;
+                color: #fff;
+                font-weight: 700;
+                transition: color 0.2s;
+                width: 100%;
+                position: relative;
+            }
+            .check_label:hover {
+                color: rgba(140, 60, 244, 1);
+            }
+            img {
+                display: block;
+                width: 200px;
+                aspect-ratio: 1 / 1.43;
+                object-fit: cover;
+                border: 2px solid transparent; 
+                border-radius: 10px;
+                transition: all 0.2s;
+                position: relative;
+            }
+            .check_label label:hover img {
+                border-color: rgba(140, 60, 244, 1);
+            }
+            .check_label input[type="checkbox"]:checked + label img{ 
+                border-color: rgba(140, 60, 244, 1);
+            }
+            .check_label input[type="checkbox"]:checked + label::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0,0,0,0.8);
+                border-radius: 10px;
+                z-index: 1;
+            }
+            .check_label input[type="checkbox"]:checked + label::after {
+                content: '✔';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 50px;
+                line-height: 1;
+                color: rgba(140, 60, 244, 1); 
+                z-index: 2;
+            }
+        }
+        button#favSubBtn{
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            width: 100px;
+            height: 40px;
+            background-color: rgb(134, 77, 237);
+            color: #fff;
+            cursor: pointer;
+            transition: 0.3s;
+            border: 0;
+            border-radius: 10px;
+            &:disabled{
+                background-color: rgb(149 149 149);
+                color: rgb(201 201 201);
+                border: 0;
+            }
+            &:not(&:disabled):hover{
+                font-size: 15px;
+            }
+        }
+    }
+}

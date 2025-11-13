@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lukia</title>
+    <link rel="icon" href="./favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/css-mypage.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-left">
+                <div class="homeBox">
+                    <a href="./index.html">Lukia</a>
+                </div>
+                <div class="menuBox">
+                    <nav>
+                        <ul>
+                            <li><a href="./search.html">통합검색</a></li>
+                            <li><a href="./weekNew.html">요일별 신작</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="header-right">
+                <a href="" id="loginBtn">로그인 / 회원가입</a>
+                <a href="" id="likeBtn">보관함</a>
+            </div>
+        </header>
+        <section>
+            <div class="inner-container">
+                <h1>My Page</h1>
+                <div class="contentDiv">
+                    <p class="title">ID</p>
+                    <div class="innerCD">
+                        <p class="content" id="contentID">-</p>
+                    </div>
+                </div>
+                <div class="contentDiv">
+                    <p class="title">닉네임</p>
+                    <div class="innerCD">
+                        <p class="content" id="contentNick">-</p>
+                        <button type="button" id="changeNick" data-bs-toggle="modal" data-bs-target="#nickModal">변경하기</button>
+                    </div>
+                </div>
+                <div class="contentDiv">
+                    <p class="title">PW</p>
+                    <div class="innerCD">
+                        <button type="button" class="pw-modalBtn" data-bs-toggle="modal" data-bs-target="#pwModal">변경하기</button>
+                    </div>
+                </div>
+                <div class="contentDiv">
+                    <p class="title">관심장르</p>
+                    <div class="innerCD">
+                        <button type="button" class="fav-modalBtn" data-bs-toggle="modal" data-bs-target="#favModal">변경하기</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <p>
+                <a href="./index.html">Lukia</a>
+            </p>
+            <p>
+                Allright reserved Lukia
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                        <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+                        <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334q.002-.211-.006-.422A6.7 6.7 0 0 0 16 3.542a6.7 6.7 0 0 1-1.889.518 3.3 3.3 0 0 0 1.447-1.817 6.5 6.5 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.32 9.32 0 0 1-6.767-3.429 3.29 3.29 0 0 0 1.018 4.382A3.3 3.3 0 0 1 .64 6.575v.045a3.29 3.29 0 0 0 2.632 3.218 3.2 3.2 0 0 1-.865.115 3 3 0 0 1-.614-.057 3.28 3.28 0 0 0 3.067 2.277A6.6 6.6 0 0 1 .78 13.58a6 6 0 0 1-.78-.045A9.34 9.34 0 0 0 5.026 15"/>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
+                        <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z"/>
+                    </svg>
+                </span>
+            </p>
+        </footer>
+    </div>
+    <div id="spinnerContainer" class="spinner-container">
+        <div class="spinner-border" role="status"></div>
+    </div>
+    <div class="round"></div> <!-- 배경 -->
+    <!-- Modal -->
+    <div class="modal fade" id="nickModal" tabindex="-1" aria-labelledby="nickModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="nickModalLabel">닉네임 변경</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="inputBox">
+                        <input type="text" id="nickInput" placeholder="새롭게 정할 닉네임을 입력해주세요.(2자이상, 특수문자 불가)">
+                        <p id="nickMessage">메세지</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+                    <button type="button" class="btn btn-custom" id="nick-saveBtn">저장</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="pwModal" tabindex="-1" aria-labelledby="pwModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="pwModalLabel">비밀번호 변경</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="swiper mySwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="input-group">
+                                    <input type="password" id="pwOldInput" class="pwInput" name="pw" placeholder="기존 비밀번호를 입력해주세요.">
+                                    <p id="pwMessage1">메세지</p>
+                                    <div class="pw_show_hi">
+                                        <button type="button" class="pw-toggle" id="pwOldToggle">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16" id="eyeOpen1">
+                                                <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
+                                                <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-slash" viewBox="0 0 16 16" id="eyeSlash1">
+                                                <path d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7 7 0 0 0-2.79.588l.77.771A6 6 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755q-.247.248-.517.486z"/>
+                                                <path d="M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829zm-2.943 1.299.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829"/>
+                                                <path d="M3.35 5.47q-.27.24-.518.487A13 13 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7 7 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709zm10.296 8.884-12-12 .708-.708 12 12z"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="input-group">
+                                    <input type="password" id="pwNewInput" class="pwInput" name="pw" placeholder="새로운 비밀번호를 입력해주세요.">
+                                    <p id="pwMessage2">메세지</p>
+                                    <div class="pw_show_hi">
+                                        <button type="button" class="pw-toggle" id="pwNewToggle">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16" id="eyeOpen2">
+                                                <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
+                                                <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-slash" viewBox="0 0 16 16" id="eyeSlash2">
+                                                <path d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7 7 0 0 0-2.79.588l.77.771A6 6 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755q-.247.248-.517.486z"/>
+                                                <path d="M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829zm-2.943 1.299.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829"/>
+                                                <path d="M3.35 5.47q-.27.24-.518.487A13 13 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7 7 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709zm10.296 8.884-12-12 .708-.708 12 12z"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+                    <button type="button" class="btn btn-custom" id="pw-nextBtn">다음</button>
+                    <button type="button" class="btn btn-custom" id="pw-saveBtn">저장</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="favModal" tabindex="-1" aria-labelledby="favModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="favModalLabel">관심사 변경</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="favBox">
+                        
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+                    <button type="button" class="btn btn-custom" id="favor-saveBtn">저장</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+    const openNickBtn = document.querySelector('#nickModal');
+    const openPwBtn = document.querySelector('#pwModal');
+    const openFavorBtn = document.querySelector('#favModal');
+    const nickInput = document.querySelector('#nickInput');
+    const nickMsg = document.querySelector('#nickMessage');
+    const nickSaveBtn = document.querySelector('#nick-saveBtn');
+    const pwOldInput = document.querySelector('#pwOldInput');
+    const pwOldToggle = document.querySelector('#pwOldToggle');
+    const pwOldEye = document.querySelector('#eyeOpen1');
+    const pwOldSlash = document.querySelector('#eyeSlash1');
+    const pwMsg1 = document.querySelector('#pwMessage1');
+    const pwNewInput = document.querySelector('#pwNewInput');
+    const pwNewToggle = document.querySelector('#pwNewToggle');
+    const pwNewEye = document.querySelector('#eyeOpen2');
+    const pwNewSlash = document.querySelector('#eyeSlash2');
+    const pwMsg2 = document.querySelector('#pwMessage2');
+    const pwNextBtn = document.querySelector('#pw-nextBtn');
+    const pwSaveBtn = document.querySelector('#pw-saveBtn');
+    const favorSaveBtn = document.querySelector('#favor-saveBtn');
+    const genreArr = ["Action","Adventure","Comedy","Drama","Ecchi","Fantasy","Horror","Mahou Shoujo","Mecha","Music","Mystery","Psychological","Romance","Sci-Fi","Slice of Life","Sports","Supernatural","Thriller"];
+    const genreObj = {
+        "Action":"액션",
+        "Adventure":"모험",
+        "Comedy":"코미디",
+        "Drama":"드라마",
+        "Ecchi":"선정적",
+        "Fantasy":"판타지",
+        "Horror":"호러",
+        "Mahou Shoujo":"마법소녀",
+        "Mecha":"메카",
+        "Music":"음악",
+        "Mystery":"미스터리",
+        "Psychological":"초능력",
+        "Romance":"로맨스",
+        "Sci-Fi":"SF",
+        "Slice of Life":"일상",
+        "Sports":"스포츠",
+        "Supernatural":"초자연",
+        "Thriller":"스릴러"
+    }
+
+    var swiper = new Swiper(".mySwiper", {
+        simulateTouch: false,
+    });
+
+    // 로그인
+    function setLogin(status){
+        document.querySelector('.header-right').innerHTML = `
+            ${status? '<a href="./likedLIst.html" id="likeBtn">보관함</a><a href="./mypage.html" id="mypageBtn">마이페이지</a><a href="" id="logout">로그아웃</a>':'<a href="./login.html" id="loginBtn">로그인 / 회원가입</a>'}
+        `;
+    }
+
+    // 로그아웃클릭 이벤트
+    window.addEventListener('click', (e)=>{
+        if(e.target.id == 'logout'){
+            logout();
+        }
+    })
+
+    // 스크롤시 헤더 변화
+    window.addEventListener('scroll',()=>{
+        window.scrollY != 0 ? document.querySelector('header').classList.add('active') : document.querySelector('header').classList.remove('active');
+    });
+
+    function checkId() {
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+        let u = false;
+        users.forEach(user=>{
+            if(user.isLogin == true) {
+                u = user
+            }
+        })
+        return u;
+    }
+
+    // 로그아웃
+    function logout(){
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+        users.forEach(user=>{
+            if(user.isLogin == true) {
+                user.isLogin = false; // ✅ 로그인 상태 갱신
+                localStorage.setItem('users', JSON.stringify(users));
+                alert("로그아웃되었습니다!");
+                window.location.reload();
+            }
+        })
+    }
+
+    // 스피너 보이기
+    function showSpinner(selector) {
+        const spinner = document.getElementById(selector);
+        if (!spinner) return;
+        spinner.classList.remove('fade-out');
+        spinner.style.display = 'flex';
+    }
+
+    // 스피너 숨김 + 페이드 아웃 함수
+    function hideSpinner(selector) {
+        const spinner = document.getElementById(selector);
+        if (!spinner) return;
+
+        // 페이드 아웃 클래스 추가
+        spinner.classList.add('fade-out');
+
+        // transition이 끝난 뒤 display:none 처리
+        spinner.addEventListener('transitionend', () => {
+            if (spinner.classList.contains('fade-out')) {
+            spinner.style.display = 'none';
+            }
+        }, { once: true });
+    }
+
+    // 로그인여부반환
+    function getLoggedInUserIndex() {
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+        return users.findIndex(u => u.isLogin === true);
+    }
+
+    const idx = getLoggedInUserIndex();
+    if (idx === -1) {
+        alert('로그인 후 사용 가능합니다.');
+        history.back();
+    }
+
+    // 로드시 실행
+    document.addEventListener('DOMContentLoaded', () => {
+        let loginUser = checkId();
+        loginUser?setLogin(loginUser.isLogin):setLogin(loginUser);
+        document.querySelector('#contentID').textContent = loginUser.id;
+        document.querySelector('#contentNick').textContent = loginUser.username;
+        showSpinner('spinnerContainer');
+
+        try {
+            
+        } catch (error) {
+            console.error('데이터 로드 오류:', error);
+        } finally {
+            hideSpinner('spinnerContainer');
+        }
+    });
+
+    // 닉네임수정모달 보여지기 전 이벤트
+    document.querySelector('#nickModal').addEventListener('show.bs.modal',()=>{
+        nickInput.value = '';
+        nickMsg.textContent = '';
+    })
+
+    // 닉네임저장버튼 클릭
+    nickSaveBtn.addEventListener('click',()=>{
+        let nick = checkId().username;
+        let reg = /[\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]/g;
+        if(!nickInput.value){
+            nickMsg.textContent = '닉네임을 입력해주세요.';
+            return false;
+        }
+        if(nickInput.value == nick){
+            nickMsg.textContent = '동일한 닉네임입니다!';
+            return false;
+        }
+        if(reg.test(nickInput.value)){
+            nickMsg.textContent = '특수문자는 포함 될 수 없습니다.';
+            return false;
+        }
+        if(nickInput.value.length<2){
+            nickMsg.textContent = '2글자 이상이어야 합니다.';
+            return false;
+        }
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+        users.forEach(user=>{
+            if(user.isLogin == true) {
+                user.username = nickInput.value; // ✅ 닉네임 갱신
+                localStorage.setItem('users', JSON.stringify(users));
+                alert("닉네임이 변경되었습니다.");
+                window.location.reload();
+            }
+        });
+    })
+
+    // 비밀번호 모달 보여지기 전 이벤트
+    document.querySelector('#pwModal').addEventListener('show.bs.modal',()=>{
+        swiper.slideTo(0);
+        pwOldInput.value = '';
+        pwNewInput.value = '';
+        pwMsg1.textContent = '';
+        pwMsg2.textContent = '';
+        pwOldToggle.style.display = 'none';
+        pwOldInput.type = 'password';
+        pwOldSlash.style.display = 'block';
+        pwOldEye.style.display = 'none';
+        pwNewToggle.style.display = 'none';
+        pwNewInput.type = 'password';
+        pwNewSlash.style.display = 'block';
+        pwNewEye.style.display = 'none';
+        pwNextBtn.style.display = 'block';
+        pwSaveBtn.style.display = 'none';
+    })
+
+    // 기존비밀번호 인풋 입력시
+    pwOldInput.addEventListener('input', () => {
+        if(pwOldInput.value.length > 0) {
+            pwOldToggle.style.display = 'block';
+        } else {
+            pwOldToggle.style.display = 'none';
+            pwOldInput.type = 'password';
+            pwOldSlash.style.display = 'block';
+            pwOldEye.style.display = 'none';
+        }
+    });
+    // 기존비밀번호 눈 클릭시
+    pwOldToggle.addEventListener('click', (e)=> {
+        if(pwOldInput.type == 'password') {
+            pwOldInput.type = 'text';
+            pwOldSlash.style.display = 'none';
+            pwOldEye.style.display = 'block'
+        } else {   
+            pwOldInput.type = 'password';
+            pwOldSlash.style.display = 'block';
+            pwOldEye.style.display = 'none';
+        }
+    });
+
+    // 기존비밀번호 체크 함수
+    function checkOldPw() {
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+        users.forEach(user=>{
+            if(user.isLogin == true) {
+                console.log(user.pw, pwOldInput.value);
+                if(user.pw == pwOldInput.value){
+                    // 비밀번호 일치시
+                    swiper.slideTo(1);
+                    pwNextBtn.style.display = 'none';
+                    pwSaveBtn.style.display = 'block';
+                    console.log("비밀번호일치!");
+                }else{
+                    // 비밀번호 불일치시
+                    pwMsg1.textContent = '비밀번호가 일치하지 않습니다!';
+                }
+            }
+        });
+    }
+
+    // 다음버튼 클릭시 이벤트
+    pwNextBtn.addEventListener('click',(e)=>{
+        checkOldPw();
+    })
+
+    // 신규비밀번호 인풋 입력시
+    pwNewInput.addEventListener('input', () => {
+        if(pwNewInput.value.length > 0) {
+            pwNewToggle.style.display = 'block';
+        } else {
+            pwNewToggle.style.display = 'none';
+            pwNewInput.type = 'password';
+            pwNewSlash.style.display = 'block';
+            pwNewEye.style.display = 'none';
+        }
+    });
+    // 신규비밀번호 눈 클릭시
+    pwNewToggle.addEventListener('click', (e)=> {
+        if(pwNewInput.type == 'password') {
+            pwNewInput.type = 'text';
+            pwNewSlash.style.display = 'none';
+            pwNewEye.style.display = 'block'
+        } else {   
+            pwNewInput.type = 'password';
+            pwNewSlash.style.display = 'block';
+            pwNewEye.style.display = 'none';
+        }
+    });
+
+    // 신규 비밀번호 저장버튼 클릭 이벤트
+    const regExp = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*?])[A-Za-z\d!@#$%^&*?]{8,}$/;
+    function checkNewPw() {
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+        users.forEach(user=>{
+            if(user.isLogin == true) {
+                console.log(!pwNewInput.value);
+                if(!pwNewInput.value){
+                    pwMsg2.textContent = '비밀번호를 입력해주세요!';
+                    return false;
+                }
+                if(user.pw == pwNewInput.value){
+                    // 기존비밀번호와 일치시
+                    pwMsg2.textContent = '기존 비밀번호와 동일합니다!';
+                    return false;
+                }
+                // 기존비밀번호와 불일치시
+                if(!regExp.test(pwNewInput.value)){
+                    // 정규식통과 못했을때
+                    pwMsg2.textContent = '영문, 숫자, 특수문자를 포함해 8자 이상 입력해주세요.';
+                    return false;
+                }
+                user.pw = pwNewInput.value; // ✅ 비밀번호 갱신
+                localStorage.setItem('users', JSON.stringify(users));
+                alert("비밀번호가 변경되었습니다. 다시 로그인해주세요.");
+                logout();
+            }
+        });
+    };
+
+    // 저장버튼 클릭시 이벤트
+    pwSaveBtn.addEventListener('click',(e)=>{
+        checkNewPw();
+    })
+
+    // 관심사 모달 보여지기 전 이벤트
+    document.querySelector('#favModal').addEventListener('show.bs.modal',()=>{
+        document.querySelector('.favBox').innerHTML = '';
+        let favor = checkId().favor;
+        console.log(favor);
+        for(let gen of genreArr){
+            let checked = false;
+            for(let myFav of favor){
+                if(gen == myFav){
+                    checked = true;
+                }
+            }
+            document.querySelector('.favBox').innerHTML += `
+            <div class="check_label">
+                <input type="checkbox" id="favor-${gen}" name="favor" value="${gen}" ${checked?'checked':''}>
+                <label for="favor-${gen}">
+                    <span class="custom-checkbox"></span> 
+                    ${genreObj[gen]}
+                </label>
+            </div>
+            `;
+        }
+    });
+
+    // favor 저장버튼 클릭시 이벤트
+    favorSaveBtn.addEventListener('click',(e)=>{
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+        const newFav = document.querySelectorAll('.favBox input');
+        let newFavArr = [];
+        newFav.forEach(fav=>{
+            if(fav.checked){
+                newFavArr.push(fav.value);
+            }
+        })
+        users.forEach(user=>{
+            if(user.isLogin == true) {
+                user.favor = newFavArr; // ✅ 관심사 갱신
+                localStorage.setItem('users', JSON.stringify(users));
+                alert("관심장르가 변경되었습니다.");
+                window.location.reload();
+            }
+        });
+    })
+</script>
+</html>

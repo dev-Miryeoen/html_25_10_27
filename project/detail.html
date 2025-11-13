@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lukia</title>
+    <link rel="icon" href="./favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/css-detail.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-left">
+                <div class="homeBox">
+                    <a href="./index.html">Lukia</a>
+                </div>
+                <div class="menuBox">
+                    <nav>
+                        <ul>
+                            <li><a href="./search.html">통합검색</a></li>
+                            <li><a href="./weekNew.html">요일별 신작</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="header-right">
+                <a href="" id="loginBtn">로그인 / 회원가입</a>
+                <a href="" id="likeBtn">보관함</a>
+            </div>
+        </header>
+        <section>
+            <div class="top-banner"></div>
+        </section>
+        <section>
+            <div class="top-title">
+                <div class="top-title-left">
+                    <img src="" alt="" data-aos="fade-up" data-aos-duration="1300">
+                    <div class="likeBox">
+                        <button type="button" id="addBoxBtn">보관함에 담기</button>
+                    </div>
+                </div>
+                <div class="top-title-right" data-aos="fade" data-aos-duration="3000">
+                    <h1>Fetch Failed...</h1>
+                    <p>Now Server is not available. Please try it later.</p>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="content">
+                <div class="content-left">
+                    <ul></ul>
+                </div>
+                <div class="content-right">
+                    <div class="commentBox" data-aos="fade" data-aos-duration="1300">
+                        <h3>시청자 코멘트</h3>
+                        <ul>
+                            <li>
+                                <div>
+                                    <p class="commentTop"><span class="com-name">Administrator</span><span class="com-date">2025.11.10</span></p>
+                                    <pre class="commentContent">코멘트를 입력하는 란 입니다.<br>이 작품에 관해서 코멘트를 남겨주세요.</pre>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="commentInputBox">
+                            <form action="">
+                                <textarea name="comment" id="commentInput" cols="30" rows="10"></textarea>
+                                <button id="regCommentBtn">등록</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="recommandBox">
+                        <h3 data-aos="fade" data-aos-duration="1300">추천목록</h3>
+                        <div class="recSwiperBox" data-aos="fade" data-aos-duration="1300">
+                            <div class="swiper mySwiper">
+                                <div class="swiper-wrapper"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <p>
+                <a href="./index.html">Lukia</a>
+            </p>
+            <p>
+                Allright reserved Lukia
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                        <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+                        <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334q.002-.211-.006-.422A6.7 6.7 0 0 0 16 3.542a6.7 6.7 0 0 1-1.889.518 3.3 3.3 0 0 0 1.447-1.817 6.5 6.5 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.32 9.32 0 0 1-6.767-3.429 3.29 3.29 0 0 0 1.018 4.382A3.3 3.3 0 0 1 .64 6.575v.045a3.29 3.29 0 0 0 2.632 3.218 3.2 3.2 0 0 1-.865.115 3 3 0 0 1-.614-.057 3.28 3.28 0 0 0 3.067 2.277A6.6 6.6 0 0 1 .78 13.58a6 6 0 0 1-.78-.045A9.34 9.34 0 0 0 5.026 15"/>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
+                        <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z"/>
+                    </svg>
+                </span>
+            </p>
+        </footer>
+    </div>
+    <div id="spinnerContainer" class="spinner-container">
+        <div class="spinner-border" role="status"></div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+
+    // 로그인
+    function setLogin(status){
+        const urlParams = new URLSearchParams(location.search);
+        console.log(checkId().liked);
+        let isin = checkId().liked == undefined? false: checkId().liked.find((el)=>el==urlParams.get('id'));
+        console.log(isin);
+        document.querySelector('.header-right').innerHTML = `
+        ${status? '<a href="./likedLIst.html" id="likeBtn">보관함</a><a href="./mypage.html" id="mypageBtn">마이페이지</a><a href="" id="logout">로그아웃</a>':'<a href="./login.html" id="loginBtn">로그인 / 회원가입</a>'}
+        `;
+        document.querySelector('.likeBox').innerHTML = `
+            ${status? (isin? '<button type="button" id="removeBoxBtn">보관함에서 제거</button>':'<button type="button" id="addBoxBtn">보관함에 담기</button>'):'<button type="button" id="addBoxBtn">보관함에 담기</button>'}
+        `;
+    }
+
+    window.addEventListener('click', (e)=>{
+        // 로그아웃버튼 클릭
+        if(e.target.id == 'logout'){
+            logout();
+        }
+        // 보관함담기 클릭
+        if(e.target.id == 'addBoxBtn'){
+            addLikeFunc();
+        }
+        // 보관함에서 제거 클릭
+        if(e.target.id == 'removeBoxBtn'){
+            removeLikeFunc();
+        }
+    })
+
+    let dataObj = {};
+    const fieldArr = ["장르","에피소드","시즌","방영여부","방영시작","방영종료","인기","평점"];
+    const genresObj = {
+        "Action": "액션",
+        "Adventure": "모험",
+        "Comedy": "코미디",
+        "Drama": "드라마",
+        "Ecchi": "선정성있음",
+        "Fantasy": "판타지",
+        "Horror": "호러",
+        "Mahou Shoujo": "마법소녀",
+        "Mecha": "메카",
+        "Music": "음악",
+        "Mystery": "미스터리",
+        "Psychological": "초능력",
+        "Romance": "로맨스",
+        "Sci-Fi": "SF",
+        "Slice of Life": "일상",
+        "Sports": "스포츠",
+        "Supernatural": "초현실",
+        "Thriller": "스릴러"
+    };
+    const seasonObj = {
+        "SPRING": "봄",
+        "SUMMER": "여름",
+        "FALL": "가을",
+        "WINTER": "겨울"
+    }
+    const statusObj = {
+        "RELEASING": "방영중",
+        "FINISHED": "방영종료",
+        "NOT YET AIRED": "방영예정",
+        "CANCELLED": "방영취소"
+    }
+
+    var swiper = new Swiper(".mySwiper", {
+        slidesPerView: "auto",
+        spaceBetween: 20,
+        mousewheel: true,
+        freeMode: true,
+        simulateTouch: false,
+    });
+
+    // 스크롤시 헤더 변화
+    window.addEventListener('scroll',()=>{
+        window.scrollY != 0 ? document.querySelector('header').classList.add('active') : document.querySelector('header').classList.remove('active');
+    });
+
+    async function aniData_fetch(query, variables) {
+        const url = 'https://graphql.anilist.co';
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+            },
+            body: JSON.stringify({ query, variables }),
+        };
+        try {
+            const response = await fetch(url, options);
+            const json = await response.json();
+            if (!response.ok) throw json;
+            return json;
+        } catch (error) {
+            console.error('API Error:', error);
+            throw error;
+        }
+    }
+
+    // 추천작품 fetch 함수
+    async function detailDataFetch(param) {
+        const query = `
+        query Query($mediaId: Int, $sort: [RecommendationSort], $page: Int, $perPage: Int) {
+        Media(id: $mediaId) {
+            bannerImage
+            meanScore
+            coverImage {
+            large
+            }
+            description
+            endDate {
+            day
+            month
+            year
+            }
+            episodes
+            genres
+            id
+            popularity
+            recommendations(sort: $sort, page: $page, perPage: $perPage) {
+            edges {
+                node {
+                mediaRecommendation {
+                    coverImage {
+                    large
+                    }
+                    id
+                    title {
+                    romaji
+                    }
+                }
+                }
+            }
+            }
+            season
+            seasonYear
+            startDate {
+            day
+            month
+            year
+            }
+            status
+            title {
+            romaji
+            }
+        }
+        }
+        `;
+
+        const variables = {
+            "mediaId": param,
+            "sort": "RATING_DESC",
+            "page": 1,
+            "perPage": 10
+        };
+
+        try {
+            const data = await aniData_fetch(query, variables);
+            dataObj = data.data.Media;
+        } catch (error) {
+            console.error('데이터 불러오기 실패:', error);
+        }
+    }
+
+    function showSpinner(selector) {
+        const spinner = document.getElementById(selector);
+        if (!spinner) return;
+        spinner.classList.remove('fade-out');
+        spinner.style.display = 'flex';
+    }
+
+    // 스피너 숨김 + 페이드 아웃 함수
+    function hideSpinner(selector) {
+        const spinner = document.getElementById(selector);
+        if (!spinner) return;
+
+        // 페이드 아웃 클래스 추가
+        spinner.classList.add('fade-out');
+
+        // transition이 끝난 뒤 display:none 처리
+        spinner.addEventListener('transitionend', () => {
+            if (spinner.classList.contains('fade-out')) {
+            spinner.style.display = 'none';
+            }
+        }, { once: true });
+    }
+
+    function dataInsertFunc(obj){
+        document.querySelector('.top-banner').style.backgroundImage = `url(${obj.bannerImage})`;
+        document.querySelector('.top-title-left img').src = `${obj.coverImage.large}`;
+        document.querySelector('.top-title-left img').alt = `${obj.title.romaji}`;
+        document.querySelector('.top-title-right h1').textContent = `${obj.title.romaji}`;
+        document.querySelector('.top-title-right p').innerHTML = `${obj.description}`;
+        let str = '';
+        for(let field of fieldArr){
+            str += `
+            <li data-aos="fade-up" data-aos-duration="1300">
+            <p class="field">${field}</p>
+            <p class="fieldData">
+            `;
+            switch(field){
+                case "장르": {
+                    for(let genre of obj.genres){
+                        str += `
+                        <span>${genresObj[genre]}</span>
+                        `;
+                    }
+                }; break;
+                case "에피소드": obj.episodes? str += obj.episodes: str += '--'; break;
+                case "시즌": str += `${obj.seasonYear}년 ${seasonObj[obj.season]}`; break;
+                case "방영여부": str += `${statusObj[obj.status]}`; break;
+                case "방영시작": {
+                    str += obj.startDate.year;
+                    str += ". ";
+                    obj.startDate.month<10? str += "0"+obj.startDate.month : str += obj.startDate.month;
+                    str += ". ";
+                    obj.startDate.day<10? str += "0"+obj.startDate.day : str += obj.startDate.day;
+                }; break;
+                case "방영종료": {
+                    if(!obj.endDate.year||!obj.endDate.month||!obj.endDate.day){
+                        str += '--.--.--';
+                    }else{
+                        str += obj.endDate.year;
+                        str += ". ";
+                        obj.endDate.month<10? str += "0"+obj.endDate.month : str += obj.endDate.month;
+                        str += ". ";
+                        obj.endDate.day<10? str += "0"+obj.endDate.day : str += obj.endDate.day;
+                    }
+                }; break;
+                case "인기": str += obj.popularity; break;
+                case "평점": str += obj.meanScore+"%"; break;
+            }
+            str += `
+            </p></li>
+            `;
+        }
+        document.querySelector('.content-left ul').innerHTML = str;
+        let str2 = '';
+        for(let slide of obj.recommendations.edges){
+            str2 += `
+            <div class="swiper-slide">
+                <a href="./detail.html?id=${slide.node.mediaRecommendation.id}">
+                    <img src="${slide.node.mediaRecommendation.coverImage.large}" alt="${slide.node.mediaRecommendation.title.romaji}">
+                    <p>${slide.node.mediaRecommendation.title.romaji}</p>
+                </a>
+            </div>
+            `;
+        }
+        document.querySelector('.mySwiper .swiper-wrapper').innerHTML = str2;
+    }
+
+    function delMyComment(e) {
+        e.target.closest('.myComment').remove();
+    }
+
+    function checkId() {
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+        let u = false;
+        users.forEach(user=>{
+            if(user.isLogin == true) {
+                u = user
+            }
+        })
+        return u;
+    }
+
+    function logout(){
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+        users.forEach(user=>{
+            if(user.isLogin == true) {
+                user.isLogin = false; // ✅ 로그인 상태 갱신
+                localStorage.setItem('users', JSON.stringify(users));
+                alert("로그아웃되었습니다!");
+                window.location.reload();
+            }
+        })
+    }
+
+    function getLoggedInUserIndex() {
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+        return users.findIndex(u => u.isLogin === true);
+    }
+
+    // addLikeFunc (중복 방지)
+    function addLikeFunc() {
+        const urlParams = new URLSearchParams(location.search);
+        const idToAdd = urlParams.get('id');
+        if (!idToAdd) return alert('잘못된 아이디입니다.');
+
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+        const idx = getLoggedInUserIndex();
+
+        if (idx === -1) {
+            alert('로그인 후 사용 가능합니다.');
+            window.location.href = './login.html';
+            return;
+        }
+
+        const user = users[idx];
+        user.liked = Array.isArray(user.liked) ? user.liked : [];
+
+        // 중복이 아니면 추가
+        if (!user.liked.includes(idToAdd)) {
+            user.liked.push(idToAdd);
+            localStorage.setItem('users', JSON.stringify(users));
+        }
+
+        // 현재 로그인 상태(불리언)를 전달
+        setLogin(user.isLogin);
+    }
+
+    // removeLikeFunc (정상적으로 배열 업데이트)
+    function removeLikeFunc() {
+        const urlParams = new URLSearchParams(location.search);
+        const idToRemove = urlParams.get('id');
+        if (!idToRemove) return alert('잘못된 아이디입니다.');
+
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+        const idx = getLoggedInUserIndex();
+
+        if (idx === -1) {
+            alert('로그인 후 사용 가능합니다.');
+            window.location.href = './login.html';
+            return;
+        }
+
+        const user = users[idx];
+        user.liked = Array.isArray(user.liked) ? user.liked : [];
+
+        // 필터링해서 liked 갱신
+        user.liked = user.liked.filter(el => el !== idToRemove);
+
+        // users 배열 업데이트 후 저장
+        users[idx] = user;
+        localStorage.setItem('users', JSON.stringify(users));
+
+        // 로그인 상태를 정확히 전달
+        setLogin(user.isLogin);
+    }
+
+    // 첫 로드시 실행
+    document.addEventListener('DOMContentLoaded', async () => {
+        let loginUser = checkId();
+        loginUser?setLogin(loginUser.isLogin):setLogin(loginUser);
+        const urlParams = new URLSearchParams(location.search);
+        showSpinner('spinnerContainer');
+        try {
+            await detailDataFetch(urlParams.get('id'));
+            console.log(dataObj);
+            dataInsertFunc(dataObj);
+        } catch (error) {
+            console.error('데이터 로드 오류:', error);
+        } finally {
+            hideSpinner('spinnerContainer');
+        }
+    });
+
+    // 코멘트삭제버튼 클릭 이벤트
+    window.addEventListener('click',(e)=>{
+        if(e.target.classList.contains('com-delBtn')){
+            delMyComment(e);
+        }
+    })
+
+    // 코멘트등록버튼 클릭 이벤트
+    document.querySelector('#regCommentBtn').addEventListener('click',(e)=>{
+        e.preventDefault();
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+        const idx = getLoggedInUserIndex();
+        if (idx === -1) {
+            alert('로그인 후 사용 가능합니다.');
+            return;
+        }
+        let input = document.querySelector('#commentInput');
+        if(!input.value) {
+            alert('코멘트를 입력해주세요!');
+            return false;
+        }
+        let today = new Date();
+        let dateFormat = today.getFullYear() +
+        '.' + ( (today.getMonth()+1) < 9 ? "0" + (today.getMonth()+1) : (today.getMonth()+1) )+
+        '.' + ( (today.getDate()) < 9 ? "0" + (today.getDate()) : (today.getDate()) );
+        document.querySelector('.commentBox ul').innerHTML += `
+        <li class="myComment">
+            <div>
+                <p class="commentTop"><span class="com-name">${users[idx].username||'guest'}</span><span class="com-date">${dateFormat}</span></p>
+                <pre class="commentContent">${input.value}</pre>
+            </div>
+            <button type="button" class="com-delBtn">❌</button>
+        </li>
+        `;
+        input.value = '';
+    })
+</script>
+</html>

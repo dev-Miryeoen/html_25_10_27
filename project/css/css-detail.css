@@ -1,0 +1,548 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Thin.woff2') format('woff2');
+    font-weight: 100;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraLight.woff2') format('woff2');
+    font-weight: 200;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraBold.woff2') format('woff2');
+    font-weight: 800;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Black.woff2') format('woff2');
+    font-weight: 900;
+    font-display: swap;
+}
+
+body{
+    font-family: "Roboto", 'Pretendard', sans-serif;
+    background-color: #000;
+}
+a{
+    outline: none;
+}
+
+/* 공통부분 */
+.container{
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+}
+header{
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    padding: 0 20px;
+    background-color: rgba(0,0,0,0.4);
+    backdrop-filter: blur(8px);
+    z-index: 999;
+    border-bottom: 1px solid transparent;
+    transition: 0.3s;
+    &.active{
+        border-bottom-color: rgb(134, 77, 237);
+    }
+    .header-left{
+        display: flex;
+        align-items: center;
+        .homeBox{
+            margin-right: 40px;
+            a{
+                color: #fff;
+                font-size: 32px;
+                transition: 0.3s;
+                font-family: "Comfortaa", sans-serif;
+                font-weight: bold;
+            }
+            a:hover{
+                color: rgb(134, 77, 237);
+            }
+        }
+        .menuBox{
+            nav{
+                ul{
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 0;
+                    padding-left: 0;
+                    gap: 40px;
+                    li{
+                        a{
+                            color: #fff;
+                            font-weight: 600;
+                            font-size: 18px;
+                            transition: 0.3s;
+                        }
+                        a:hover{
+                            color: rgb(134, 77, 237);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .header-right{
+        display: flex;
+        align-items: center;
+        a{
+            color: #fff;
+            font-weight: 600;
+            font-size: 18px;
+            transition: 0.3s;
+            margin-left: 20px;
+        }
+        a:hover{
+            color: rgb(134, 77, 237);
+        }
+    }
+}
+footer{
+    padding: 50px;
+    height: 200px;
+    border-top: 1px solid rgb(134, 77, 237);
+    p{
+        color: rgb(134, 77, 237);
+        font-size: 20px;
+        margin-bottom: 0;
+        font-weight: 300;
+        a{
+            color: rgb(134, 77, 237);
+            font-size: 32px;
+            font-weight: bold;
+            font-family: "Comfortaa", sans-serif;
+        }
+        &:first-child{
+            margin-bottom: 10px;
+        }
+        &:last-child{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 20px;
+            span{
+                display: flex;
+                gap: 10px;
+                svg{
+                    width: 40px;
+                    height: 40px;
+                }
+            }
+        }
+    }
+}
+.spinner-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+    visibility: visible;
+    inset: 0;
+    .spinner-border{
+        color: rgb(134, 77, 237);
+    }
+    &.fade-out{
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+#spinnerContainer{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    background-color: rgba(0,0,0,0.9);
+    backdrop-filter: blur(10px);
+    width: 100vw;
+    height: 100vh;
+}
+
+.top-banner{
+    width: 100%;
+    height: 300px;
+    background-image: url('https://s4.anilist.co/file/anilistcdn/media/anime/banner/5114-q0V5URebphSG.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: brightness(0.3);
+}
+.top-title{
+    display: flex;
+    padding: 0 180px;
+    background-color: #000;
+    position: relative;
+    &::before{
+        content: '';
+        width: calc(100% - 300px);
+        height: 100%;
+        position: absolute;
+        z-index: -1;
+        top: 1px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: linear-gradient(90deg, transparent 10%, rgba(134, 77, 237, 0.8) 50%, transparent 90%);
+    }
+    .top-title-left{
+        width: 250px;
+        height: 380px;
+        position: relative;
+        margin-bottom: 10px;
+        img{
+            position: absolute;
+            left: 0;
+            top: -50px;
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            z-index: 1;
+            border-radius: 10px;
+            background-color: rgb(100,100,100);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 1);
+        }
+        button{
+            bottom: 0px;
+            display: block;
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            border: 1px solid rgb(134, 77, 237);
+            border-radius: 10px;
+            background: transparent;
+            font-size: 16px;
+            color: #fff;
+            transition: 0.3s;
+            &:hover{
+                color: rgb(134, 77, 237);
+            }
+            &#removeBoxBtn{
+                color: #fff;
+                background-color: rgb(134, 77, 237);
+                &:hover{
+                    background-color: transparent;
+                }
+            }
+        }
+    }
+    .top-title-right{
+        width: calc(100% - 250px);
+        padding: 50px 0 50px 50px;
+        color: #fff;
+        h1{
+            font-size: 36px;
+            margin-bottom: 50px;
+        }
+        p{
+            font-size: 24px;
+            max-height: 300px;
+            overflow-y: auto;
+            &::-webkit-scrollbar{
+                width: 10px;
+                background-color: transparent;
+                border: 1px solid rgb(134, 77, 237);
+                border-radius: 5px;
+            }
+            &::-webkit-scrollbar-thumb{
+                border: 5px;
+                background-color: rgb(134, 77, 237);
+                border-radius: 5px;
+            }
+        }
+    }
+}
+.content{
+    display: flex;
+    padding: 50px 180px;
+    .content-left{
+        width: 250px;
+        ul{
+            li{
+                margin-bottom: 35px;
+                p{
+                    &.field{
+                        font-size: 24px;
+                        color: rgb(134, 77, 237);
+                        margin-bottom: 5px;
+                    }
+                    &.fieldData{
+                        font-size: 20px;
+                        color: #fff;
+                        margin-bottom: 5px;
+                        span{
+                            display: block;
+                            margin-bottom: 5px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .content-right{
+        width: calc(100% - 250px);
+        padding-left: 50px;
+        .commentBox{
+            margin-bottom: 35px;
+            h3{
+                font-size: 24px;
+                color: #fff;
+                margin-bottom: 35px;
+            }
+            ul{
+                padding: 0;
+                max-height: 700px;
+                min-height: 280px;
+                overflow-y: auto;
+                overflow-x: hidden;
+                &::-webkit-scrollbar{
+                    width: 10px;
+                    background-color: transparent;
+                    border: 1px solid rgb(134, 77, 237);
+                    border-radius: 5px;
+                }
+                &::-webkit-scrollbar-thumb{
+                    border: 5px;
+                    background-color: rgb(134, 77, 237);
+                    border-radius: 5px;
+                }
+                li{
+                    display: flex;
+                    margin-bottom: 35px;
+                    width: 100%;
+                    padding: 0 10px;
+                    &>div{
+                        width: fit-content;
+                        min-width: 150px;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-end;
+                    }
+                    p{
+                        margin-bottom: 15px;
+                        &.commentTop{
+                            display: flex;
+                            justify-content: space-between;
+                            flex-direction: row;
+                            align-items: center;
+                            font-size: 20px;
+                            width: 100%;
+                            span{
+                                &.com-name{
+                                    color: #fff
+                                }
+                                &.com-date{
+                                    color: #ccc;
+                                }
+                            }
+                        }
+                    }
+                    .commentContent{
+                        color: #fff;
+                        font-family: 'Pretendard';
+                        font-size: 20px;
+                        width: fit-content;
+                        max-width: 100%;
+                        padding: 15px;
+                        border-radius: 10px;
+                        box-shadow: 0 0 8px rgba(255,255,255,1);
+                    }
+                    &.myComment{
+                        justify-content: flex-end;
+                        position: relative;
+                        p{
+                            &.commentTop{
+                                transition: 0.3s;
+                                span{
+                                    &.com-name{
+                                        color: rgb(134, 77, 237);
+                                        margin-right: 20px;
+                                    }
+                                }
+                            }
+                        }
+                        .commentContent{
+                            box-shadow: 0 0 8px rgb(134, 77, 237);
+                        }
+                        .com-delBtn{
+                            position: absolute;
+                            top: -5px;
+                            right: 5px;
+                            width: 40px;
+                            height: 40px;
+                            background-color: #000;
+                            border: 0;
+                            border-radius: 50%;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            cursor: pointer;
+                            font-size: 20px;
+                            opacity: 0;
+                            transition: 0.3s;
+                            padding: 10px;
+                        }
+                        &:hover{
+                            .commentTop{
+                                padding-right: 40px;
+                            }
+                            .com-delBtn{
+                                opacity: 1;
+                            }
+                        }
+                    }
+                }
+            }
+            .commentInputBox{
+                form{
+                    display: flex;
+                    justify-content: space-between;
+                    textarea{
+                        background-color: #000;
+                        color: #fff;
+                        font-size: 20px;
+                        border-radius: 10px;
+                        border: 1px solid rgb(134, 77, 237);
+                        height: 100px;
+                        width: calc(100% - 195px);
+                        resize: none;
+                        padding: 15px;
+                        font-family: 'Pretendard';
+                    }
+                    button{
+                        width: 160px;
+                        height: 100px;
+                        background-color: #000;
+                        color: #fff;
+                        border: 1px solid rgb(134, 77, 237);
+                        border-radius: 10px;
+                        cursor: pointer;
+                        font-size: 20px;
+                        transition: 0.3s;
+                        &:hover{
+                            color: rgb(134, 77, 237);
+                        }
+                    }
+                }
+            }
+        }
+        .recommandBox{
+            h3{
+                color: #fff;
+                font-size: 24px;
+                margin-bottom: 35px;
+            }
+            .recSwiperBox{
+                .swiper{
+                    width: 100%;
+                    .swiper-wrapper{
+                        .swiper-slide{
+                            width: 160px;
+                            a{
+                                width: 160px;
+                                display: block;
+                                user-select: none;
+                                img{
+                                    width: 160px;
+                                    height: 230px;
+                                    background-color: #777;
+                                    border-radius: 10px;
+                                    margin-bottom: 15px;
+                                }
+                                p{
+                                    font-size: 20px;
+                                    color: #fff;
+                                    height: 62px;
+                                    word-break: break-all;
+                                    text-overflow: ellipsis;
+                                    overflow: hidden;
+                                    display: -webkit-box;
+                                    -webkit-box-orient: vertical;
+                                    -webkit-line-clamp: 2;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.spinner-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+    visibility: visible;
+    inset: 0;
+    .spinner-border{
+        color: rgb(134, 77, 237);
+    }
+    &.fade-out{
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+#spinnerContainer{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    background-color: rgba(0,0,0,0.9);
+    backdrop-filter: blur(10px);
+    width: 100vw;
+    height: 100vh;
+}

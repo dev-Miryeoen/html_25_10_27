@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @font-face {
+            font-family: 'PyeongchangPeace';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-02@1.0/PyeongChangPeace-Light.woff2') format('woff2');
+            font-weight: 300;
+            font-display: swap;
+        }
+        body{
+            background-color: rgb(157 210 255);
+            font-family: 'PyeongchangPeace';
+        }
+        .container{
+            width: 600px;
+            margin: 0 auto;
+            .top{
+                padding: 60px 0;
+                text-align: center;
+                h1{
+                    font-size: 50px;
+                }
+                p{
+                    font-size: 20px;
+                    font-weight: bold;
+                }
+            }
+            .content{
+                .item{
+                    box-shadow: 0 0 20px rgba(255,255,255,1), 0 0 20px rgba(255,255,255,1) inset;
+                    padding: 20px;
+                    border-radius: 20px;
+                    overflow: hidden;
+                    margin-bottom: 40px;
+                    transition: 0.3s;
+                    &:hover{
+                        box-shadow: 0 0 50px rgba(255,255,255,1), 0 0 20px rgba(255,255,255,1) inset;
+                    }
+                    .imgBox{
+                        border-radius: 20px 20px 0 0;
+                        background-color: #fff;
+                        img{
+                            width: 100%;
+                            transform: scale(0.7);
+                            transition: 0.3s;
+                            &:hover{
+                                transform: scale(0.73);
+                            }
+                        }
+                    }
+                    .contentBox{
+                        border-radius: 0 0 20px 20px;
+                        background-color: #fff;
+                        text-align: center;
+                        padding: 0 20px 20px;
+                        h3{
+                            margin: 0;
+                            font-size: 30px;
+                        }
+                        p{
+                            font-size: 18px;
+                            &:nth-child(3){
+                                font-weight: bold;
+                            }
+                            .del{
+                                text-decoration: line-through;
+                                margin-right: 10px;
+                                &::after{
+                                    content: '→';
+                                }
+                            }
+                        }
+                        a{
+                            text-decoration: none;
+                            display: inline-block;
+                            font-weight: bold;
+                            color: cornflowerblue;
+                            transition: all 0.3s;
+                            &:hover{
+                                color: red;
+                                transform: scale(1.1);
+                            }
+                        }
+                    }
+                }
+            }
+            footer{
+                img{
+                    width: 400px;
+                    position: fixed;
+                    right: 50px;
+                    bottom: 50px;
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top">
+            <h1>배달의 민족</h1>
+            <p>넌 배달할 때가 제일 멋있어</p>
+        </div>
+        <div class="content">
+            <div class="item">
+                <div class="imgBox">
+                    <img src="https://lh3.googleusercontent.com/YZeruD3Q26Vr3jJL56dhK6UAsJFsVGkeBC808z_eZvduUvJ2KsjWMXA4LxxIhaY-7TnpzDVL_f9H_SRBfYeP6qOERPk3yMM4ELBdAx_BIFXrQhLAFlRiXhjCsjQNirvlL0hxAQgqYg=s907-no" alt="치즈피자">
+                </div>
+                <div class="contentBox">
+                    <h3>치즈피자</h3>
+                    <p>모짜렐라 치즈의 진하고 고소한 맛이 입 안 가득~</p>
+                    <p><span class="del">10000원</span>8900원</p>
+                    <a href="#">바로결제</a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="imgBox">
+                    <img src="https://lh3.googleusercontent.com/pw/AP1GczMVDJ786i9BFj5gTxfFifJ5CnP7pLTn4C4tD_1Q129T09GWzZVoehccDMhyhWR7alDj0bhKfd4-AVYlHxZdwSbYgwpZrWmGaUj72HhNPElV31vhJ06G0PgdcjA7ZoqHpuA14F6DdgmGlRvjmK7Tn4ku3Q=w1280-h1280-s-no-gm?authuser=0" alt="콤비네이션피자">
+                </div>
+                <div class="contentBox">
+                    <h3>콤비네이션피자</h3>
+                    <p>신선한 돼지고기와 치즈, 페퍼로니, 버섯, 옥수수, 피망 등 각종 야채가 가득한 토핑</p>
+                    <p><span class="del">12000원</span>10900원</p>
+                    <a href="#">바로결제</a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="imgBox">
+                    <img src="https://lh3.googleusercontent.com/pw/AP1GczOcttk-1li42tldy_cx4oAcn3RKt4J2FWXF4Y6y4OijfqAHwFQpj0jO0_UVbrjkqcyzlmZUxDjWjSghzKyRT6R_Blb58GVtLTu8ihJvcBSq85_c0hPAEHPs7Y2rd1hpy8uLwu1pwIT5vCT1FN8P9pixUg=w911-h911-s-no-gm?authuser=0" alt="고구마피자">
+                </div>
+                <div class="contentBox">
+                    <h3>고구마피자</h3>
+                    <p>고소하고 달콤한 고구마와 특제 소스의 떨리는 만남!</p>
+                    <p><span class="del">12000원</span>10900원</p>
+                    <a href="">바로결제</a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="imgBox">
+                    <img src="https://lh3.googleusercontent.com/pw/AP1GczNOoZ3jRrf_C8b7oCwZ4ogv96ZPLKYMTa5_1cYoAYNJDgSX68w0iEqCDRhpJGtW2NgYZuQE2SFD9l0qAn10Bq8kGHz6TrSpt7V0DiUh0Osrf_S-IYRpZ3yUh2FEJ-vV2aWjHWkQ17M_c1FFkUvbIzWbYw=w1280-h1280-s-no-gm?authuser=0" alt="깐쇼새우피자">
+                </div>
+                <div class="contentBox">
+                    <h3>깐쇼새우피자</h3>
+                    <p>새콤달콤한 새우의 맛이 일품인 깐쇼새우피자</p>
+                    <p><span class="del">16000원</span>14900원</p>
+                    <a href="">바로결제</a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="imgBox">
+                    <img src="https://lh3.googleusercontent.com/pw/AM-JKLUfDry2jbEjaZqAPQH_nTG4o4w-YGpc23TZd5AdCbBdMg_NHjy76edtk_Nj3gA6R2336RXEoMiVyn4ud5IliW3bwEI9a3Ffz4wT3A6SpLyluEI3D5Hx6oj54A9zYuEOIkLhkgJQeVYwZTA4sny3Sm_sQA=s850-no" alt="미트러버피자">
+                </div>
+                <div class="contentBox">
+                    <h3>미트러버피자</h3>
+                    <p>5가지 다양한 미트 토핑과 체다치즈 엣지까지 꽉 채운 풍성한 맛</p>
+                    <p><span class="del">18000원</span>15900원</p>
+                    <a href="">바로결제</a>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <img src="https://www.baemin.com/_next/static/media/club.2196419a.gif" alt="">
+        </footer>
+    </div>
+</body>
+</html>

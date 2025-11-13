@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lukia</title>
+    <link rel="icon" href="./favicon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/css-sign_up.css">
+</head>
+<body>
+    <div class="container">
+        <div class="inner" data-aos="fade-up" data-aos-duration="1300">
+            <div class="backimg"></div>
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <h1>SIGN UP</h1>
+                        <form action="" id="signupForm">
+                            <p>USER NAME</p>
+                            <div>
+                                <input type="text" id="id" placeholder="8자이상">
+                                <button type="button" class="dup" id="dup" disabled>중복체크</button>
+                            </div>
+                            <span id="username_msg"></span>
+                            <p>PASSWORD</p>
+                            <div class="pw_show_hi">
+                                <input type="password" id="pw" placeholder="영어,숫자,특수문자 포함 8자 이상">
+                                <span class="pw-toggle" id="pw-toggle">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16" id="eyeOpen">
+                                        <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
+                                        <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-slash" viewBox="0 0 16 16" id="eyeSlash">
+                                        <path d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7 7 0 0 0-2.79.588l.77.771A6 6 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755q-.247.248-.517.486z"/>
+                                        <path d="M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829zm-2.943 1.299.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829"/>
+                                        <path d="M3.35 5.47q-.27.24-.518.487A13 13 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7 7 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709zm10.296 8.884-12-12 .708-.708 12 12z"/>
+                                    </svg>
+                                </span>
+                            </div>
+                            <span id="password_msg"></span>
+                            
+                            <a href="./login.html"><button type="button" id="signup" disabled>SUBMIT</button></a>
+                        </form>
+                    </div>
+                    <div class="swiper-slide">
+                        <h3>관심장르<a href="" id="skip">SKIP</a></h3>
+                        <div class="favorBox">
+                            <div class="favor-innerBox"></div>
+                        </div>
+                        <button type="button" id="favSubBtn">저장</button>
+                    </div>
+                </div>
+              </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+    const username = document.getElementById('id');
+    const id = document.getElementById('id');
+    const password = document.getElementById('pw');
+    const dup = document.getElementById('dup');
+    const signup = document.getElementById('signup');
+    const id_msg = document.getElementById('username_msg');
+    const pw_msg = document.getElementById('password_msg');
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const pwToggle = document.getElementById('pw-toggle');
+    const eyeSlash = document.getElementById('eyeSlash');
+    const eyeOpen = document.getElementById('eyeOpen');
+    const skip = document.getElementById('skip');
+    const favSubBtn = document.getElementById('favSubBtn');
+    
+    // 비밀번호 정규식: 영문, 숫자, 특수문자 1개 이상 포함, 8자 이상
+    const regExp = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*?])[A-Za-z\d!@#$%^&*?]{8,}$/;
+    const genreArr = ["Action","Adventure","Comedy","Drama","Ecchi","Fantasy","Horror","Mahou Shoujo","Mecha","Music","Mystery","Psychological","Romance","Sci-Fi","Slice of Life","Sports","Supernatural","Thriller"];
+    const genreObj = {
+        "Action":"액션",
+        "Adventure":"모험",
+        "Comedy":"코미디",
+        "Drama":"드라마",
+        "Ecchi":"선정적",
+        "Fantasy":"판타지",
+        "Horror":"호러",
+        "Mahou Shoujo":"마법소녀",
+        "Mecha":"메카",
+        "Music":"음악",
+        "Mystery":"미스터리",
+        "Psychological":"초능력",
+        "Romance":"로맨스",
+        "Sci-Fi":"SF",
+        "Slice of Life":"일상",
+        "Sports":"스포츠",
+        "Supernatural":"초자연",
+        "Thriller":"스릴러"
+    }
+    for(let gen of genreArr){
+        document.querySelector('.favor-innerBox').innerHTML += `
+        <div class="check_label">
+            <input type="checkbox" id="favor-${gen}" name="favor" value="${gen}">
+            <label for="favor-${gen}">
+                <img src="./image/${gen.replace(/ /g,"")}.cover.jpg" alt="${gen.replace(/ /g,"")}">
+                ${genreObj[gen]}
+            </label>
+        </div>
+        `;
+    }
+
+    var swiper = new Swiper(".mySwiper", {
+        autoHeight: true,
+        simulateTouch: false,
+    });
+    swiper.on('slideChange',()=>{
+        document.querySelector('.inner').classList.toggle('active');
+    });
+
+    let checked = false; // 중복확인 여부
+
+    // 실시간 입력 이벤트 처리
+    id.addEventListener('input', () => {
+        dup.disabled = id.value.trim().length < 8; // 8자 미만이면 중복확인 비활성화
+        checked = false; // 다시 입력하면 중복확인 초기화
+        id_msg.textContent = id.value.length < 8 ? '아이디는 8자 이상이어야 합니다.' : '';
+        submit();
+        swiper.updateAutoHeight(100);
+    });
+
+    password.addEventListener('input', submit);
+
+    // 중복확인 버튼 클릭
+    dup.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (id.value.trim().length < 8) {
+            id_msg.textContent = '아이디는 8자 이상이어야 합니다.';
+            checked = false;
+            return;
+        }
+
+        const isDuplicate = users.some(user => user.id === id.value.trim());
+
+        if (isDuplicate) {
+            id_msg.textContent = '이미 존재하는 아이디입니다!';
+            checked = false;
+        } else {
+            id_msg.textContent = '사용 가능한 아이디입니다';
+            checked = true;
+        }
+        swiper.updateAutoHeight(100);
+        submit();
+    });
+
+    // 유효성 검사
+    function validateForm() {
+        // 아이디 검사
+        if (id.value.trim().length < 8) {
+            id_msg.textContent = '아이디는 8자 이상이어야 합니다.';
+            return false;
+        }
+        // 비밀번호 검사
+        if (!regExp.test(password.value)) {
+            pw_msg.textContent = '영문, 숫자, 특수문자를 포함해 8자 이상 입력해주세요.';
+            return false;
+        } else {
+            pw_msg.textContent = '';
+        }
+
+        // 중복확인 여부
+        if (!checked) {
+            id_msg.textContent = '아이디 중복확인을 해주세요.';
+            return false;
+        }
+
+        return true;
+    }
+
+    //입력 시마다 유효성 검사
+    function submit() {
+        signup.disabled = !validateForm();
+    }
+
+    // 회원가입 버튼 클릭
+    signup.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (!validateForm()) return;
+        let arr = [];
+        let checked = document.querySelectorAll('.check_label input:checked');
+        for(let input of checked){
+            arr.push(input.value);
+        };
+        const newUser = {
+            username: username.value,
+            id: id.value.trim(),
+            pw: password.value,
+            isLogin: true,
+            favor: [],
+            liked: []
+        };
+
+        users.push(newUser);
+        localStorage.setItem("users", JSON.stringify(users));
+
+        alert('회원가입이 완료되었습니다!');
+        swiper.slideTo(1);
+    });
+
+    // 패스워드 입력
+    password.addEventListener('input', () => {
+        submit();
+
+        if(password.value.length > 0) {
+            pwToggle.style.display = 'block';
+        } else {
+            pwToggle.style.display = 'none';
+            password.type = 'password';
+            eyeSlash.style.display = 'block';
+            eyeOpen.style.display = 'none';
+        }
+    });
+    
+    // 패스워드 아이콘 클릭 시 비밀번호 표시/숨김
+    pwToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        const isPassword = password.type == 'password';
+
+        if(isPassword) {
+            password.type = 'text';
+            eyeSlash.style.display= 'none';
+            eyeOpen.style.display = 'block';
+        } else {
+            password.type = 'password';
+            eyeSlash.style.display = 'block';
+            eyeOpen.style.display = 'none';
+        }
+    });
+
+    // 로그인유저 체크
+    function checkLogin() {
+        const users = JSON.parse(localStorage.getItem('users'));
+        users.forEach(user=>{
+            if(user.isLogin == true) { // 이미 누군가 로그인여부가 true이면
+                alert('이미 로그인 되어있습니다!');
+                window.location.href = `./index.html`; // 경고 후 index로 보내기
+            }
+        })
+        return false;
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        // 페이지 진입시 로그인 상황 체크
+        checkLogin();
+    });
+
+    skip.addEventListener('click',(e)=>{
+        e.preventDefault();
+        alert('관심장르는 마이페이지에서 변경이 가능합니다.');
+        window.location.href = './index.html';
+    })
+
+    favSubBtn.addEventListener('click',()=>{
+        let arr = [];
+        let checked = document.querySelectorAll('.check_label input:checked');
+        for(let input of checked){
+            arr.push(input.value);
+        };
+        console.log(arr);
+        
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+        users.forEach(user=>{
+            if(user.isLogin == true) {
+                user.favor = arr;
+            }
+        });
+        localStorage.setItem('users', JSON.stringify(users));
+        alert('관심장르가 저장되었습니다.');
+        window.location.href = './index.html';
+    })
+
+    document.querySelectorAll('.check_label label img').forEach(label=>{
+        label.addEventListener('mouseover',(e)=>{
+            console.log(e.target.alt);
+            document.querySelector('.backimg').style.backgroundImage = `url(./image/${e.target.alt}.banner.jpg)`;
+        })
+    })
+</script>
+
+</html>

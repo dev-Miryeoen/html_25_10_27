@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Thin.woff2') format('woff2');
+    font-weight: 100;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraLight.woff2') format('woff2');
+    font-weight: 200;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraBold.woff2') format('woff2');
+    font-weight: 800;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Black.woff2') format('woff2');
+    font-weight: 900;
+    font-display: swap;
+}
+
+body{
+    font-family: "Roboto", 'Pretendard', sans-serif;
+    background-color: #000;
+}
+a{
+    outline: none;
+}
+
+/* 공통부분 */
+.container{
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+}
+header{
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    padding: 0 20px;
+    background-color: rgba(0,0,0,0.4);
+    backdrop-filter: blur(8px);
+    z-index: 999;
+    border-bottom: 1px solid transparent;
+    transition: 0.3s;
+    &.active{
+        border-bottom-color: rgb(134, 77, 237);
+    }
+    .header-left{
+        display: flex;
+        align-items: center;
+        .homeBox{
+            margin-right: 40px;
+            a{
+                color: #fff;
+                font-size: 32px;
+                transition: 0.3s;
+                font-family: "Comfortaa", sans-serif;
+                font-weight: bold;
+            }
+            a:hover{
+                color: rgb(134, 77, 237);
+            }
+        }
+        .menuBox{
+            nav{
+                ul{
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 0;
+                    padding-left: 0;
+                    gap: 40px;
+                    li{
+                        a{
+                            color: #fff;
+                            font-weight: 600;
+                            font-size: 18px;
+                            transition: 0.3s;
+                        }
+                        a:hover{
+                            color: rgb(134, 77, 237);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .header-right{
+        display: flex;
+        align-items: center;
+        a{
+            color: #fff;
+            font-weight: 600;
+            font-size: 18px;
+            transition: 0.3s;
+            margin-left: 20px;
+        }
+        a:hover{
+            color: rgb(134, 77, 237);
+        }
+    }
+}
+footer{
+    padding: 50px;
+    height: 200px;
+    border-top: 1px solid rgb(134, 77, 237);
+    p{
+        color: rgb(134, 77, 237);
+        font-size: 20px;
+        margin-bottom: 0;
+        font-weight: 300;
+        a{
+            color: rgb(134, 77, 237);
+            font-size: 32px;
+            font-weight: bold;
+            font-family: "Comfortaa", sans-serif;
+        }
+        &:first-child{
+            margin-bottom: 10px;
+        }
+        &:last-child{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 20px;
+            span{
+                display: flex;
+                gap: 10px;
+                svg{
+                    width: 40px;
+                    height: 40px;
+                }
+            }
+        }
+    }
+}
+.spinner-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+    visibility: visible;
+    inset: 0;
+    .spinner-border{
+        color: rgb(134, 77, 237);
+    }
+    &.fade-out{
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+#spinnerContainer{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    background-color: rgba(0,0,0,0.9);
+    backdrop-filter: blur(10px);
+    width: 100vw;
+    height: 100vh;
+}
+
+@import url(base.css);
+
+
+h1{
+    font-size: 24px;
+    color: #fff;
+    padding: 20px 90px 0 90px;
+    margin-bottom: 0;
+}
+.section-container{
+    padding: 35px 80px;
+    display: flex;
+    justify-content: space-between;
+    ul{
+        width: 190px;
+        padding: 15px 0;
+        margin: 0;
+        text-align: center;
+        font-weight: 700;
+        font-size: 20px;
+        border-radius: 10px;
+        color: #fff;
+        li{
+            height: 305px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            margin-top: 30px;
+            a{
+                text-decoration: none;
+                color: white;
+                font-weight: 100;
+                display: block;
+                transition: 0.3s;
+                &:hover{
+                    transform: scale(1.05);
+                    text-decoration: none;
+                }
+                img{
+                    width: 160px;
+                    height: 220px;
+                    border-radius: 10px;
+                    object-fit: cover;
+                    object-position: center;
+                    transition: transform 0.1s;
+                }
+            }
+        }
+    }
+    li img:hover{
+        transform: scale(1.015);
+    }
+    li p{
+        text-align: left;
+        font-weight: 400;
+        font-size: 20px;
+        margin: 13px auto 0;
+        width: 160px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-all;
+    }
+}
